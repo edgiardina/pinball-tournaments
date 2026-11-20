@@ -4,6 +4,8 @@ This site shows the big pinball tournaments, the dates of each event, and the da
 registration opens. It gives calendar feeds that people can subscribe to in Google, Apple, and
 Outlook calendars.
 
+The site is at https://wpprfarm.com/.
+
 No person moderates the site. Each date comes from the organizer's website or from the IFPA
 calendar. A script checks each date against the exact page text before the date goes on the site.
 
