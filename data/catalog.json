@@ -62,7 +62,7 @@
     {"id": "pinfest", "name": "UK Pinfest", "short": "Pinfest", "tz": "Europe/London", "region": "Europe",
      "keys": ["ukpinfest.com"], "patterns": ["^pinfest"],
      "watch": ["https://www.ukpinfest.com/competition/"]},
-    {"id": "sfge", "name": "Southern-Fried Gameroom Expo", "short": "SFGE", "tz": "America/New_York", "region": "US East",
+    {"id": "sfge", "name": "Southern-Fried Gaming Expo", "short": "SFGE", "tz": "America/New_York", "region": "US East",
      "keys": ["gameatl.com"], "patterns": ["^sfge", "southern.fried"],
      "watch": ["https://gameatl.com/southern-fried-pinball-tournaments/"]},
     {"id": "pincinnati", "name": "Pincinnati", "short": "Pincinnati", "tz": "America/New_York", "region": "US East",
