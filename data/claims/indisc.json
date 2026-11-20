@@ -1,6 +1,6 @@
 {
  "event_id": "indisc",
- "checked_at": "2026-11-19T21:00:00+00:00",
+ "checked_at": "2026-11-20T01:00:00Z",
  "claims": [
   {
    "field": "event_start",
@@ -13,13 +13,6 @@
    "value": "2027-02-07",
    "quote": "February 4th - 7th, 2027",
    "url": "https://www.indisc.com/"
-  },
-  {
-   "field": "reg_opens",
-   "value": "2026-08-29T10:00",
-   "quote": "2027 event sales will open on Saturday, August 29th at 10AM PDT.",
-   "url": "https://www.indisc.com/",
-   "tz": "America/Los_Angeles"
   },
   {
    "field": "reg_url",

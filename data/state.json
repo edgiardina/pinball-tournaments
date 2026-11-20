@@ -1,7 +1,7 @@
 {
  "events": {
   "apf": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -9,7 +9,7 @@
      "quote": "27.–30. Mai 2027",
      "url": "https://www.pinball-festival.at/",
      "value": "2027-05-30",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -17,7 +17,7 @@
      "quote": "27.–30. Mai 2027",
      "url": "https://www.pinball-festival.at/",
      "value": "2027-05-27",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "headline": {
      "field": "headline",
@@ -25,13 +25,13 @@
      "quote": "Information about tournaments, machines, exhibitors, programme, tickets, travel and accommodation will be available soon.",
      "url": "https://www.pinball-festival.at/",
      "value": "Information about tournaments, machines, exhibitors, programme, tickets, travel and accommodation will be available soon.",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
   "auspo": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -39,7 +39,7 @@
      "quote": "NOVEMBER 26TH - 29TH 2026",
      "url": "https://auspinballopen.com/",
      "value": "2026-11-29",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -47,7 +47,7 @@
      "quote": "NOVEMBER 26TH - 29TH 2026",
      "url": "https://auspinballopen.com/",
      "value": "2026-11-26",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "reg_url": {
      "field": "reg_url",
@@ -55,13 +55,13 @@
      "quote": "BUY TICKETS <https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup>",
      "url": "https://auspinballopen.com/",
      "value": "https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
   "beast": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -69,7 +69,7 @@
      "quote": "It’s Year 5 of THE BEAST! July 8-11, 2027 at Pocketeer Billiards in Buffalo, NY.",
      "url": "https://www.pinballprofile.com/thebeast/",
      "value": "2027-07-11",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -77,7 +77,7 @@
      "quote": "It’s Year 5 of THE BEAST! July 8-11, 2027 at Pocketeer Billiards in Buffalo, NY.",
      "url": "https://www.pinballprofile.com/thebeast/",
      "value": "2027-07-08",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "player_cap": {
      "field": "player_cap",
@@ -85,7 +85,7 @@
      "quote": "Limited to 150 players.",
      "url": "https://www.pinballprofile.com/thebeast/",
      "value": 150,
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "reg_opens": {
      "field": "reg_opens",
@@ -94,13 +94,38 @@
      "tz": "America/New_York",
      "url": "https://www.pinballprofile.com/thebeast/",
      "value": "2027-02-26T18:00",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "bpac": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "cactusjack": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "calextreme": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "d82spc": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "dpo": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "expo": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -108,7 +133,7 @@
      "quote": "October 13 - October 16, 2027",
      "url": "https://pinballexpo.com/tournament-schedule/",
      "value": "2027-10-16",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -116,13 +141,23 @@
      "quote": "October 13 - October 16, 2027",
      "url": "https://pinballexpo.com/tournament-schedule/",
      "value": "2027-10-13",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "flippersm": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "freeplayflorida": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "gspf": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -130,7 +165,7 @@
      "quote": "MAY 14th-16th, 2027",
      "url": "https://www.goldenstatepinball.org/tournament/",
      "value": "2027-05-16",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -138,13 +173,18 @@
      "quote": "MAY 14th-16th, 2027",
      "url": "https://www.goldenstatepinball.org/tournament/",
      "value": "2027-05-14",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "hpo": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "indisc": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -152,7 +192,7 @@
      "quote": "February 4th - 7th, 2027",
      "url": "https://www.indisc.com/",
      "value": "2027-02-07",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -160,7 +200,7 @@
      "quote": "February 4th - 7th, 2027",
      "url": "https://www.indisc.com/",
      "value": "2027-02-04",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "reg_status": {
      "field": "reg_status",
@@ -168,7 +208,7 @@
      "quote": "Get Tickets <https://buytickets.at/iepinball/2352180>",
      "url": "https://www.indisc.com/",
      "value": "open",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "reg_url": {
      "field": "reg_url",
@@ -176,19 +216,13 @@
      "quote": "Get Tickets <https://buytickets.at/iepinball/2352180>",
      "url": "https://www.indisc.com/",
      "value": "https://buytickets.at/iepinball/2352180",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
-   "rejected": [
-    {
-     "field": "reg_opens",
-     "reason": "year 2026 not in quote years [2027]",
-     "value": "2026-08-29T10:00"
-    }
-   ]
+   "rejected": []
   },
   "kpo": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "headline": {
      "field": "headline",
@@ -196,13 +230,37 @@
      "quote": "Because of this, we have made the difficult decision to postpone KPO for one year.",
      "url": "https://pinballtournament.no/",
      "value": "Because of this, we have made the difficult decision to postpone KPO for one year.",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "louisville": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "nepc": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {
+    "headline": {
+     "field": "headline",
+     "first_seen_at": "2026-11-20T00:56:29+00:00",
+     "quote": "Closed for now until we find a new location…. stay tuned…",
+     "url": "https://portcitypin.com/",
+     "value": "Closed for now until we find a new location…. stay tuned…",
+     "verified_at": "2026-11-20T00:56:33+00:00"
+    }
+   },
+   "rejected": []
+  },
+  "nwpas": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "nwpc": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -210,7 +268,7 @@
      "quote": "2027 target dates are August 26-29, all details To Be Confirmed.",
      "url": "https://www.nwpinballchamps.com/",
      "value": "2027-08-29",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -218,7 +276,7 @@
      "quote": "2027 target dates are August 26-29, all details To Be Confirmed.",
      "url": "https://www.nwpinballchamps.com/",
      "value": "2027-08-26",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "headline": {
      "field": "headline",
@@ -226,13 +284,32 @@
      "quote": "2027 target dates are August 26-29, all details To Be Confirmed.",
      "url": "https://www.nwpinballchamps.com/",
      "value": "2027 target dates are August 26-29, all details To Be Confirmed.",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "papa": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {
+    "headline": {
+     "field": "headline",
+     "first_seen_at": "2026-11-20T00:56:29+00:00",
+     "quote": "relaunching soon",
+     "url": "https://papa.org/",
+     "value": "relaunching soon",
+     "verified_at": "2026-11-20T00:56:33+00:00"
+    }
+   },
+   "rejected": []
+  },
+  "pinburgh": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "pincinnati": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -240,7 +317,7 @@
      "quote": "December 4-6, 2026",
      "url": "https://www.pincinnati.com/tournaments.html",
      "value": "2026-12-06",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -248,13 +325,27 @@
      "quote": "December 4-6, 2026",
      "url": "https://www.pincinnati.com/tournaments.html",
      "value": "2026-12-04",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
+    }
+   },
+   "rejected": []
+  },
+  "pinfest": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {
+    "headline": {
+     "field": "headline",
+     "first_seen_at": "2026-11-20T00:56:29+00:00",
+     "quote": "Details to follow",
+     "url": "https://www.ukpinfest.com/competition/",
+     "value": "Details to follow",
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
   "pintastic": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -262,7 +353,7 @@
      "quote": "April 8–11, 2027",
      "url": "https://pintasticnewengland.com/",
      "value": "2027-04-11",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -270,7 +361,7 @@
      "quote": "April 8–11, 2027",
      "url": "https://pintasticnewengland.com/",
      "value": "2027-04-08",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "headline": {
      "field": "headline",
@@ -278,7 +369,7 @@
      "quote": "The 2027 competition schedule is coming soon.",
      "url": "https://pintasticnewengland.com/",
      "value": "The 2027 competition schedule is coming soon.",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "reg_opens": {
      "field": "reg_opens",
@@ -286,13 +377,18 @@
      "quote": "Pass sales open November 1, 2026.",
      "url": "https://pintasticnewengland.com/",
      "value": "2026-11-01",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "rockpin": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "slovenia": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -300,7 +396,7 @@
      "quote": "18.6. – 20.6.2027",
      "url": "https://pinball.si/",
      "value": "2027-06-20",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "event_start": {
      "field": "event_start",
@@ -308,13 +404,23 @@
      "quote": "18.6. – 20.6.2027",
      "url": "https://pinball.si/",
      "value": "2027-06-18",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "spacecity": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "starfighters": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "tpf": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "reg_status": {
      "field": "reg_status",
@@ -322,7 +428,7 @@
      "quote": "you can still register on our wait list to fill any cancellations",
      "url": "https://texaspinball.com/tournaments/",
      "value": "waitlist",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     },
     "reg_url": {
      "field": "reg_url",
@@ -330,13 +436,18 @@
      "quote": "Purchase Ticket <https://texaspinball.com/store/#Tickets>",
      "url": "https://texaspinball.com/tournaments/",
      "value": "https://texaspinball.com/store/#Tickets",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   },
+  "ukopen": {
+   "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "yegpin": {
-   "checked_at": "2026-11-19T21:00:00+00:00",
+   "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
     "headline": {
      "field": "headline",
@@ -344,11 +455,11 @@
      "quote": "WE ARE WORKING ON WEBSITE UPDATES IN ANTICIPATION FOR THE NEXT SHOW. STAY TUNED!!!",
      "url": "https://www.yegpin.com/",
      "value": "WE ARE WORKING ON WEBSITE UPDATES IN ANTICIPATION FOR THE NEXT SHOW. STAY TUNED!!!",
-     "verified_at": "2026-11-20T00:53:51+00:00"
+     "verified_at": "2026-11-20T00:56:33+00:00"
     }
    },
    "rejected": []
   }
  },
- "verified_at": "2026-11-20T00:53:51+00:00"
+ "verified_at": "2026-11-20T00:56:33+00:00"
 }
