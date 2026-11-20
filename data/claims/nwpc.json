@@ -1,0 +1,24 @@
+{
+ "event_id": "nwpc",
+ "checked_at": "2026-11-19T21:00:00+00:00",
+ "claims": [
+  {
+   "field": "event_start",
+   "value": "2027-08-26",
+   "quote": "2027 target dates are August 26-29, all details To Be Confirmed.",
+   "url": "https://www.nwpinballchamps.com/"
+  },
+  {
+   "field": "event_end",
+   "value": "2027-08-29",
+   "quote": "2027 target dates are August 26-29, all details To Be Confirmed.",
+   "url": "https://www.nwpinballchamps.com/"
+  },
+  {
+   "field": "headline",
+   "value": "2027 target dates are August 26-29, all details To Be Confirmed.",
+   "quote": "2027 target dates are August 26-29, all details To Be Confirmed.",
+   "url": "https://www.nwpinballchamps.com/"
+  }
+ ]
+}

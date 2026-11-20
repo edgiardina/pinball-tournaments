@@ -1,0 +1,18 @@
+{
+ "event_id": "pincinnati",
+ "checked_at": "2026-11-19T21:00:00+00:00",
+ "claims": [
+  {
+   "field": "event_start",
+   "value": "2026-12-04",
+   "quote": "December 4-6, 2026",
+   "url": "https://www.pincinnati.com/tournaments.html"
+  },
+  {
+   "field": "event_end",
+   "value": "2026-12-06",
+   "quote": "December 4-6, 2026",
+   "url": "https://www.pincinnati.com/tournaments.html"
+  }
+ ]
+}

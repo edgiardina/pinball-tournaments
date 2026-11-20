@@ -1,0 +1,24 @@
+{
+ "event_id": "auspo",
+ "checked_at": "2026-11-19T21:00:00+00:00",
+ "claims": [
+  {
+   "field": "event_start",
+   "value": "2026-11-26",
+   "quote": "NOVEMBER 26TH - 29TH 2026",
+   "url": "https://auspinballopen.com/"
+  },
+  {
+   "field": "event_end",
+   "value": "2026-11-29",
+   "quote": "NOVEMBER 26TH - 29TH 2026",
+   "url": "https://auspinballopen.com/"
+  },
+  {
+   "field": "reg_url",
+   "value": "https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup",
+   "quote": "BUY TICKETS <https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup>",
+   "url": "https://auspinballopen.com/"
+  }
+ ]
+}

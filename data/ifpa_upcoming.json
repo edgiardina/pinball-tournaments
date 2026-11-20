@@ -1,0 +1,224 @@
+{
+ "generated_at": "2026-11-20T00:32:10+00:00",
+ "events": {
+  "indisc": [
+   {
+    "ifpa_id": 118832,
+    "name": "It Never Drains in Southern California",
+    "division": "Classics",
+    "start": "2027-02-04",
+    "end": "2027-02-05",
+    "city": "Murrieta",
+    "stateprov": "CA",
+    "country": "US",
+    "website": "https://www.indisc.com",
+    "prereg_flag_date": "2026-08-29"
+   },
+   {
+    "ifpa_id": 118834,
+    "name": "It Never Drains in Southern California",
+    "division": "Womens Division",
+    "start": "2027-02-04",
+    "end": "2027-02-06",
+    "city": "Murrieta",
+    "stateprov": "CA",
+    "country": "US",
+    "website": "https://www.indisc.com",
+    "prereg_flag_date": "2026-08-29"
+   },
+   {
+    "ifpa_id": 118833,
+    "name": "The Open - IFPA World Championship",
+    "division": "Main Tournament",
+    "start": "2027-02-04",
+    "end": "2027-02-07",
+    "city": "Murrieta",
+    "stateprov": "CA",
+    "country": "US",
+    "website": "https://www.indisc.com",
+    "prereg_flag_date": "2026-08-29"
+   },
+   {
+    "ifpa_id": 118835,
+    "name": "It Never Drains in Southern California",
+    "division": "Classics",
+    "start": "2027-02-05",
+    "end": "2027-02-06",
+    "city": "Murrieta",
+    "stateprov": "CA",
+    "country": "US",
+    "website": "https://www.indisc.com",
+    "prereg_flag_date": "2026-08-29"
+   }
+  ],
+  "pinburgh": [],
+  "papa": [],
+  "ukopen": [],
+  "epc": [],
+  "yegpin": [],
+  "starfighters": [],
+  "nwpc": [],
+  "beast": [],
+  "dpo": [],
+  "flippersm": [],
+  "pintastic": [],
+  "expo": [],
+  "bpac": [],
+  "nwpas": [],
+  "hpo": [],
+  "tpf": [
+   {
+    "ifpa_id": 121803,
+    "name": "Texas Pinball Festival Wizards Tournament",
+    "division": "Main Tournament",
+    "start": "2027-03-19",
+    "end": "2027-03-21",
+    "city": "Frisco",
+    "stateprov": "TX",
+    "country": "US",
+    "website": "https://texaspinball.com/tournaments/",
+    "prereg_flag_date": "2026-10-31"
+   }
+  ],
+  "zoo": [],
+  "d82spc": [],
+  "pinfest": [],
+  "sfge": [],
+  "pincinnati": [
+   {
+    "ifpa_id": 107604,
+    "name": "Pincinnati Strike Out Tournament",
+    "division": "Main Tournament",
+    "start": "2026-12-03",
+    "end": "2026-12-03",
+    "city": "Cincinnati",
+    "stateprov": "OH",
+    "country": "US",
+    "website": "https://www.pincinnati.com/tournaments.html#strike",
+    "prereg_flag_date": "2026-07-01"
+   },
+   {
+    "ifpa_id": 107605,
+    "name": "Pincinnati Whodey Memorial Match Play Tournament",
+    "division": "Main Tournament",
+    "start": "2026-12-04",
+    "end": "2026-12-06",
+    "city": "Cincinnati",
+    "stateprov": "OH",
+    "country": "US",
+    "website": "https://www.pincinnati.com/tournaments.html#match",
+    "prereg_flag_date": "2026-07-01"
+   },
+   {
+    "ifpa_id": 122743,
+    "name": "Pincinnati Women's 2026",
+    "division": "Main Tournament",
+    "start": "2026-12-04",
+    "end": "2026-12-05",
+    "city": "Cincinnati",
+    "stateprov": "OH",
+    "country": "US",
+    "website": "https://pincinnati.com/tournaments.html#womens",
+    "prereg_flag_date": null
+   },
+   {
+    "ifpa_id": 107603,
+    "name": "Pincinnati Sunday Juniors",
+    "division": "Juniors Division",
+    "start": "2026-12-06",
+    "end": "2026-12-06",
+    "city": "Cincinnati",
+    "stateprov": "OH",
+    "country": "US",
+    "website": "https://www.pincinnati.com/",
+    "prereg_flag_date": null
+   }
+  ],
+  "calextreme": [],
+  "gspf": [],
+  "freeplayflorida": [],
+  "spacecity": [],
+  "beach": [
+   {
+    "ifpa_id": 121173,
+    "name": "Pinball at the Beach",
+    "division": "Main Tournament",
+    "start": "2027-02-05",
+    "end": "2027-02-07",
+    "city": "St. Pete Beach",
+    "stateprov": "FL",
+    "country": "US",
+    "website": "https://elusiveorbit.myshopify.com/pages/matchplay-tournament-weekend",
+    "prereg_flag_date": "2026-10-19"
+   }
+  ],
+  "midatlantic": [],
+  "nepc": [
+   {
+    "ifpa_id": 117079,
+    "name": "New England Pinball Championship (NEPL)",
+    "division": "Main Tournament",
+    "start": "2027-01-10",
+    "end": "2027-01-10",
+    "city": "Ipswich",
+    "stateprov": "MA",
+    "country": "US",
+    "website": "http://www.nepl-llc.org",
+    "prereg_flag_date": null
+   }
+  ],
+  "cactusjack": [],
+  "stlouis": [],
+  "cleveland": [],
+  "louisville": [],
+  "pinagogo": [],
+  "kpo": [],
+  "lpa": [],
+  "rockpin": [],
+  "finsm": [],
+  "apo": [],
+  "apf": [],
+  "gpo": [],
+  "gpm": [],
+  "frenchmasters": [],
+  "slovenia": [],
+  "auspo": [
+   {
+    "ifpa_id": 121981,
+    "name": "Australian Open Women's Championship",
+    "division": "Main Tournament",
+    "start": "2026-11-27",
+    "end": "2026-11-29",
+    "city": "Tweed Heads",
+    "stateprov": "NSW",
+    "country": "AU",
+    "website": "https://auspinballopen.com/tournaments/",
+    "prereg_flag_date": null
+   },
+   {
+    "ifpa_id": 121979,
+    "name": "Australian Pinball Open",
+    "division": "Main Tournament",
+    "start": "2026-11-27",
+    "end": "2026-11-29",
+    "city": "Tweed Heads",
+    "stateprov": "NSW",
+    "country": "AU",
+    "website": "https://auspinballopen.com/tournaments/",
+    "prereg_flag_date": null
+   },
+   {
+    "ifpa_id": 121980,
+    "name": "Australian Pinball Open Classics",
+    "division": "Classics",
+    "start": "2026-11-27",
+    "end": "2026-11-28",
+    "city": "Tweed Heads",
+    "stateprov": "NSW",
+    "country": "AU",
+    "website": "https://auspinballopen.com/tournaments/",
+    "prereg_flag_date": null
+   }
+  ]
+ }
+}

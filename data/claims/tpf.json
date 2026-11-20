@@ -1,0 +1,18 @@
+{
+ "event_id": "tpf",
+ "checked_at": "2026-11-19T21:00:00+00:00",
+ "claims": [
+  {
+   "field": "reg_status",
+   "value": "waitlist",
+   "quote": "you can still register on our wait list to fill any cancellations",
+   "url": "https://texaspinball.com/tournaments/"
+  },
+  {
+   "field": "reg_url",
+   "value": "https://texaspinball.com/store/#Tickets",
+   "quote": "Purchase Ticket <https://texaspinball.com/store/#Tickets>",
+   "url": "https://texaspinball.com/tournaments/"
+  }
+ ]
+}

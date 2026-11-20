@@ -1,0 +1,31 @@
+{
+ "event_id": "beast",
+ "checked_at": "2026-11-19T21:00:00+00:00",
+ "claims": [
+  {
+   "field": "event_start",
+   "value": "2027-07-08",
+   "quote": "It’s Year 5 of THE BEAST! July 8-11, 2027 at Pocketeer Billiards in Buffalo, NY.",
+   "url": "https://www.pinballprofile.com/thebeast/"
+  },
+  {
+   "field": "event_end",
+   "value": "2027-07-11",
+   "quote": "It’s Year 5 of THE BEAST! July 8-11, 2027 at Pocketeer Billiards in Buffalo, NY.",
+   "url": "https://www.pinballprofile.com/thebeast/"
+  },
+  {
+   "field": "reg_opens",
+   "value": "2027-02-26T18:00",
+   "quote": "Weekend passes go on sale Fri., Feb. 26th at 6pm ET",
+   "url": "https://www.pinballprofile.com/thebeast/",
+   "tz": "America/New_York"
+  },
+  {
+   "field": "player_cap",
+   "value": 150,
+   "quote": "Limited to 150 players.",
+   "url": "https://www.pinballprofile.com/thebeast/"
+  }
+ ]
+}

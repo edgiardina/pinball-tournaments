@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Big Pinball Tournaments</title>
+<meta name="description" content="Registration dates and event dates for the big pinball tournaments, checked nightly against each organizer's website. Subscribe in your calendar.">
+<link rel="alternate" type="text/calendar" title="Big Pinball Tournaments" href="calendar.ics">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Big+Shoulders+Display:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f5f7fb;
+  --panel: #ffffff;
+  --ink: #17233d;
+  --ink-soft: #4a5672;
+  --rule: #d5dbe7;
+  --lamp-green: #13995a;
+  --lamp-amber: #e59a00;
+  --lamp-red: #d8342a;
+  --lamp-blue: #2a63d6;
+  --lamp-off: #b9c1d1;
+  --glow: 0 0 0 3px color-mix(in srgb, var(--c) 22%, transparent), 0 0 14px color-mix(in srgb, var(--c) 55%, transparent);
+  --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1626; --panel: #16203a; --ink: #e8edf7; --ink-soft: #a6b1c8; --rule: #2b3756;
+    --lamp-off: #4a5675; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1626; --panel: #16203a; --ink: #e8edf7; --ink-soft: #a6b1c8; --rule: #2b3756;
+  --lamp-off: #4a5675; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 var(--body); }
+a { color: var(--lamp-blue); text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) a { color: #8fb1ff; } }
+:root[data-theme="dark"] a { color: #8fb1ff; }
+:focus-visible { outline: 3px solid var(--lamp-blue); outline-offset: 2px; border-radius: 3px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+h1, h2, h3, .num { font-family: var(--display); letter-spacing: .01em; }
+
+/* masthead */
+.mast { padding: 40px 0 28px; display: grid; gap: 28px; grid-template-columns: 1.3fr 1fr; align-items: end; }
+.mast h1 { font-size: clamp(48px, 9vw, 104px); line-height: .86; font-weight: 900; margin: 0; }
+.mast h1 span { display: block; }
+.mast p { max-width: 34em; margin: 14px 0 0; color: var(--ink-soft); }
+@media (max-width: 760px) { .mast { grid-template-columns: 1fr; padding-top: 28px; } }
+
+/* subscribe */
+.sub { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 18px; }
+.sub h2 { margin: 0 0 4px; font-size: 26px; font-weight: 800; }
+.sub p { margin: 0 0 12px; font-size: 15px; color: var(--ink-soft); }
+.sub select { width: 100%; font: inherit; padding: 9px 10px; border-radius: 8px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); }
+.sub .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; font: 700 15px/1 var(--body); padding: 11px 12px;
+  border-radius: 8px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
+a.btn, a.btn:visited { color: var(--paper); }
+a.btn.ghost, a.btn.ghost:visited { color: var(--ink); }
+.sub small { display: block; margin-top: 10px; font-size: 13px; color: var(--ink-soft); }
+
+/* lamp inserts */
+.lamp { --c: var(--lamp-off); width: 14px; height: 14px; border-radius: 50%; flex: none; background: var(--c);
+  border: 2px solid color-mix(in srgb, var(--c) 60%, #000); }
+.lamp.lit { box-shadow: var(--glow); }
+.lamp.green { --c: var(--lamp-green); } .lamp.amber { --c: var(--lamp-amber); }
+.lamp.red { --c: var(--lamp-red); } .lamp.blue { --c: var(--lamp-blue); }
+.lamp.arrow { width: 0; height: 0; border-radius: 0; background: none; border: 8px solid transparent; border-left: 13px solid var(--c); border-right: 0; filter: drop-shadow(0 0 5px color-mix(in srgb, var(--c) 60%, transparent)); }
+@media (prefers-reduced-motion: no-preference) {
+  .lamp.blink { animation: blink 1.1s steps(1) infinite; }
+  @keyframes blink { 50% { --c: var(--lamp-off); box-shadow: none; } }
+}
+
+/* right now */
+.now { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--rule); margin: 8px 0 40px; }
+.now section { padding: 16px 18px 18px 0; }
+.now section + section { padding-left: 18px; border-left: 1px solid var(--rule); }
+.now h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; font-size: 24px; font-weight: 800; }
+.now ul { list-style: none; margin: 0; padding: 0; }
+.now li { padding: 6px 0; border-top: 1px dashed var(--rule); font-size: 15px; }
+.now li:first-child { border-top: 0; }
+.now li b { display: block; font-size: 16px; }
+.now .empty { color: var(--ink-soft); font-size: 15px; }
+@media (max-width: 760px) { .now { grid-template-columns: 1fr; } .now section + section { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); } }
+
+/* filters */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+.chip { font: 700 14px/1 var(--body); padding: 8px 12px; border-radius: 999px; border: 1px solid var(--rule); background: var(--panel); color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* calendar */
+.cal { margin: 0 0 44px; }
+.cal header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.cal h2 { font-size: 40px; margin: 0; font-weight: 900; }
+.cal header div { display: flex; gap: 6px; }
+.grid { display: grid; grid-template-columns: repeat(7, 1fr); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); }
+.grid .dow { font: 700 13px/1 var(--body); color: var(--ink-soft); padding: 8px 6px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.day { min-height: 92px; padding: 5px 6px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--panel); font-size: 12px; overflow: hidden; }
+.day.out { background: transparent; color: var(--ink-soft); }
+.day .d { font: 800 18px/1 var(--display); }
+.day.today .d { background: var(--ink); color: var(--paper); border-radius: 4px; padding: 1px 5px; }
+.mark { display: flex; align-items: center; gap: 5px; margin-top: 4px; line-height: 1.2; text-decoration: none; color: var(--ink); }
+.mark .lamp { width: 9px; height: 9px; border-width: 1px; }
+.mark.ev { background: color-mix(in srgb, var(--lamp-blue) 14%, transparent); border-left: 3px solid var(--lamp-blue); padding: 2px 4px; }
+@media (max-width: 640px) { .day { min-height: 54px; } .mark span { display: none; } .mark { display: inline-flex; } .mark.ev { padding: 2px; } }
+
+/* event list */
+.month { margin: 0 0 8px; }
+.month h2 { font-size: 56px; line-height: 1; font-weight: 900; margin: 30px 0 4px; color: var(--ink); }
+.ev-row { display: grid; grid-template-columns: 116px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid var(--rule); }
+.date-block { text-align: left; }
+.date-block .num { font-size: 52px; line-height: .85; font-weight: 900; display: block; white-space: nowrap; }
+.date-block .num.range { font-size: 42px; }
+.date-block small { display: block; font-size: 14px; color: var(--ink-soft); }
+.ev-row h3 { font-size: 30px; line-height: 1.02; font-weight: 800; margin: 0 0 2px; }
+.ev-row .where { color: var(--ink-soft); font-size: 15px; }
+.status { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-weight: 700; }
+.status .detail { font-weight: 400; color: var(--ink-soft); }
+.facts { margin: 8px 0 0; padding: 0; list-style: none; font-size: 15px; }
+.facts li { margin: 3px 0; }
+.quote { margin: 10px 0 0; padding: 8px 12px; border-left: 3px solid var(--lamp-amber); background: color-mix(in srgb, var(--lamp-amber) 10%, transparent); font-style: italic; font-size: 15px; }
+.src { margin-top: 8px; font-size: 13px; color: var(--ink-soft); }
+.src details { display: inline; }
+.src summary { display: inline; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.src blockquote { margin: 6px 0 0; padding-left: 10px; border-left: 2px solid var(--rule); }
+.changed { display: inline-block; font: 700 12px/1 var(--body); padding: 4px 7px; border-radius: 4px; background: var(--lamp-amber); color: #241500; margin-left: 6px; vertical-align: middle; }
+.reg-btn { margin-top: 12px; display: inline-flex; }
+@media (max-width: 560px) { .ev-row { grid-template-columns: 76px 1fr; gap: 12px; } .date-block .num { font-size: 40px; } .date-block .num.range { font-size: 30px; } .ev-row h3 { font-size: 25px; } .month h2 { font-size: 44px; } }
+
+/* TBA */
+.tba h2 { font-size: 40px; font-weight: 900; margin: 48px 0 6px; }
+.tba > p { margin: 0 0 12px; color: var(--ink-soft); max-width: 44em; }
+.tba-list { list-style: none; padding: 0; margin: 0; columns: 2 300px; column-gap: 32px; }
+.tba-list li { break-inside: avoid; padding: 10px 0; border-top: 1px solid var(--rule); font-size: 15px; }
+.tba-list b { font-size: 17px; }
+.tba-list .quote { font-size: 14px; }
+
+footer { margin: 56px 0 0; padding: 24px 0 48px; border-top: 3px solid var(--ink); font-size: 15px; color: var(--ink-soft); }
+footer h2 { font-size: 26px; font-weight: 800; color: var(--ink); margin: 0 0 6px; }
+footer .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+@media (max-width: 760px) { footer .cols { grid-template-columns: 1fr; } }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 10px 16px; border-radius: 8px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.toast.show { opacity: 1; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <h1><span>Big pinball</span><span>tournaments</span></h1>
+      <p>Spots at the big events go fast. This page tracks when registration opens and when each event happens, and checks every organizer's website each night.</p>
+    </div>
+    <aside class="sub" aria-labelledby="sub-h">
+      <h2 id="sub-h">Put it in your calendar</h2>
+      <p>Subscribe once. New dates and changes show up on their own, with a reminder the day before registration opens.</p>
+      <label class="sr" for="feed">Which calendar</label>
+      <select id="feed"></select>
+      <div class="btns">
+        <a class="btn" id="sub-apple" href="#">iPhone / Mac</a>
+        <a class="btn" id="sub-google" href="#" target="_blank" rel="noopener">Google</a>
+        <a class="btn" id="sub-outlook" href="#" target="_blank" rel="noopener">Outlook</a>
+        <button class="btn ghost" id="sub-copy" type="button">Copy link</button>
+      </div>
+      <small>Android: add it through Google Calendar. Calendar apps refresh every few hours; Google can take up to a day.</small>
+    </aside>
+  </header>
+
+  <div class="now" id="now"></div>
+
+  <div class="filters" id="filters" role="group" aria-label="Filter by region"></div>
+
+  <section class="cal" aria-labelledby="cal-h">
+    <header>
+      <h2 id="cal-h"></h2>
+      <div>
+        <button class="chip" id="prev" type="button" aria-label="Previous month">Prev</button>
+        <button class="chip" id="today" type="button">Today</button>
+        <button class="chip" id="next" type="button" aria-label="Next month">Next</button>
+      </div>
+    </header>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <main id="list"></main>
+
+  <section class="tba" aria-labelledby="tba-h">
+    <h2 id="tba-h">Dates not announced yet</h2>
+    <p>These events ran in past years. We check their sites every night and move them up when the organizer posts dates.</p>
+    <ul class="tba-list" id="tba"></ul>
+  </section>
+
+  <noscript><p>This page needs JavaScript to show events. The calendar feed works without it: <a href="calendar.ics">calendar.ics</a>.</p></noscript>
+
+  <footer>
+    <div class="cols">
+      <div>
+        <h2>Where the dates come from</h2>
+        <p>Every date on this page is quoted from the organizer's own website or the IFPA calendar. Each night a script reads the sites, and a date only goes up if the exact words are on the page. When we can't confirm something, we say "TBA" instead of guessing. Always confirm on the organizer's site before you buy anything.</p>
+      </div>
+      <div>
+        <h2>Run one of these events?</h2>
+        <p>Put your dates, registration time and time zone on your website in plain text, with the year. This page picks them up overnight. Dates that only live in Discord or Facebook can't be read.</p>
+        <p id="built"></p>
+      </div>
+    </div>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const DAY = 864e5;
+const now = new Date();
+const todayISO = isoLocal(now);
+let region = "all";
+let calMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+
+function isoLocal(d) { return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; }
+function parseDate(s) { const [y, m, d] = s.slice(0, 10).split("-").map(Number); return new Date(y, m - 1, d); }
+
+// Wall-clock time in an IANA zone -> real instant.
+function zoned(value, tz) {
+  const [d, t = "00:00"] = value.split("T");
+  const [y, mo, da] = d.split("-").map(Number), [h, mi] = t.split(":").map(Number);
+  let guess = Date.UTC(y, mo - 1, da, h, mi);
+  for (let i = 0; i < 2; i++) {
+    const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric" })
+      .formatToParts(new Date(guess)).map((x) => [x.type, x.value]));
+    const asIf = Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute);
+    guess += Date.UTC(y, mo - 1, da, h, mi) - asIf;
+  }
+  return new Date(guess);
+}
+const fmtDay = (d, opts = {}) => d.toLocaleDateString(undefined, { month: "short", day: "numeric", ...opts });
+function fmtWhen(r, eventTz) {
+  if (!r.value.includes("T")) return fmtDay(parseDate(r.value), { weekday: "short", year: parseDate(r.value).getFullYear() !== now.getFullYear() ? "numeric" : undefined });
+  const tz = r.tz || eventTz, inst = zoned(r.value, tz);
+  const there = inst.toLocaleString(undefined, { timeZone: tz, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+  const mine = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (mine === tz) return there;
+  const here = inst.toLocaleString(undefined, { weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+  return `${there} (${here} for you)`;
+}
+const instantOf = (r, tz) => r.value.includes("T") ? zoned(r.value, r.tz || tz) : parseDate(r.value);
+const where = (e) => [e.city, e.stateprov, e.country].filter(Boolean).join(", ");
+const shown = () => DATA.events.filter((e) => region === "all" || e.region === region);
+
+function regState(e) {
+  const r = e.reg, s = r.reg_status?.value;
+  if (s === "full") return { lamp: "red lit", text: "Sold out", detail: r.reg_status };
+  if (s === "waitlist") return { lamp: "red lit", text: "Sold out, waitlist open", detail: r.reg_status };
+  if (s === "closed") return { lamp: "red", text: "Registration closed", detail: r.reg_status };
+  if (r.reg_opens) {
+    const when = instantOf(r.reg_opens, e.tz);
+    if (when > now) {
+      const days = Math.ceil((when - now) / DAY);
+      return { lamp: days <= 7 ? "amber lit blink" : "amber lit", text: `Registration opens ${fmtWhen(r.reg_opens, e.tz)}`, soon: days, detail: r.reg_opens };
+    }
+    if (s === "open") return { lamp: "green lit", text: "Registration open", detail: r.reg_status };
+    return { lamp: "green", text: `Registration opened ${fmtDay(when)}`, sub: "We can't confirm it's still open.", detail: r.reg_opens };
+  }
+  if (s === "open") return { lamp: "green lit", text: "Registration open", detail: r.reg_status };
+  if (s === "not_open") return { lamp: "amber", text: "Registration not open yet", detail: r.reg_status };
+  if (r.reg_url) return { lamp: "green", text: "Registration link posted", sub: "Check the page for availability.", detail: r.reg_url };
+  return { lamp: "", text: "Registration info not posted yet" };
+}
+
+function sourceLine(src, kind) {
+  if (!src) return "";
+  const checked = src.verified_at ? `, checked ${fmtDay(new Date(src.verified_at))}` : "";
+  const q = src.quote ? ` <details><summary>what the page says</summary><blockquote>${esc(src.quote)}</blockquote></details>` : "";
+  return `${kind} <a href="${esc(src.url)}" rel="noopener">${esc(src.label)}</a>${checked}.${q}`;
+}
+const recentlyChanged = (f) => f?.previous && (now - new Date(f.previous.replaced_at)) < 14 * DAY;
+
+function dateRange(e) {
+  const a = parseDate(e.start), b = parseDate(e.end || e.start);
+  if (+a === +b) return fmtDay(a, { weekday: "short" });
+  return a.getMonth() === b.getMonth() ? `${fmtDay(a)}–${b.getDate()}` : `${fmtDay(a)} – ${fmtDay(b)}`;
+}
+
+function eventRow(e) {
+  const st = regState(e), a = parseDate(e.start), b = parseDate(e.end || e.start);
+  const live = parseDate(todayISO) >= a && parseDate(todayISO) <= b;
+  const facts = [];
+  if (e.reg.player_cap) facts.push(`Limited to ${e.reg.player_cap.value} players`);
+  if (e.past) facts.push(`${e.past.peak_players} players at its biggest (${e.past.years.join(", ")})`);
+  if (new Set(e.divisions.map((d) => d.name)).size > 1) facts.push(`IFPA tournaments: ${[...new Set(e.divisions.map((d) => d.name))].map(esc).join("; ")}`);
+  const blocked = e.watch.filter((w) => w.status && w.status !== "ok");
+  const dateSrc = e.date_source.kind === "ifpa"
+    ? `Dates from the <a href="${esc(e.date_source.url)}" rel="noopener">IFPA calendar</a>.`
+    : sourceLine(e.date_source, "Dates from");
+  return `<article class="ev-row" id="ev-${e.id}">
+    <div class="date-block"><span class="num${+a !== +b && a.getMonth() === b.getMonth() ? " range" : ""}">${a.getDate()}${+a !== +b && a.getMonth() === b.getMonth() ? "–" + b.getDate() : ""}</span>
+      <small>${a.toLocaleDateString(undefined, { weekday: "short" })}${+a !== +b ? "–" + b.toLocaleDateString(undefined, { weekday: "short", month: a.getMonth() !== b.getMonth() ? "short" : undefined, day: a.getMonth() !== b.getMonth() ? "numeric" : undefined }) : ""}</small></div>
+    <div>
+      <h3>${esc(e.name)}${recentlyChanged(e.reg.reg_opens) || recentlyChanged(e.date_source) ? '<span class="changed">Date changed</span>' : ""}</h3>
+      <div class="where">${esc(where(e) || e.region)}</div>
+      <div class="status">${live ? '<span class="lamp blue lit blink"></span>Happening now' : `<span class="lamp ${st.lamp}"></span>${esc(st.text)}`}${st.sub ? ` <span class="detail">${esc(st.sub)}</span>` : ""}</div>
+      ${e.headline ? `<p class="quote">“${esc(e.headline.value)}”</p>` : ""}
+      ${facts.length ? `<ul class="facts">${facts.map((f) => `<li>${f}</li>`).join("")}</ul>` : ""}
+      ${e.reg.reg_url && !live ? `<a class="btn reg-btn" href="${esc(e.reg.reg_url.value)}" rel="noopener">Go to registration</a>` : ""}
+      <div class="src">${dateSrc}${st.detail ? " Registration info " + sourceLine(st.detail, "from") : ""}
+        ${blocked.length ? ` We couldn't read ${blocked.map((w) => esc(w.label)).join(", ")} on the last check.` : ""}</div>
+    </div></article>`;
+}
+
+function tbaItem(e) {
+  const last = e.past ? `Last held ${parseDate(e.past.last_start).toLocaleDateString(undefined, { month: "long", year: "numeric" })}` : "";
+  const site = e.watch[0] ? `<a href="${esc(e.watch[0].url)}" rel="noopener">${esc(e.watch[0].label)}</a>` : "No website on file";
+  return `<li><b>${esc(e.name)}</b><br>${esc([where(e), last].filter(Boolean).join(". "))}<br>${site}
+    ${e.headline ? `<p class="quote">“${esc(e.headline.value)}”</p>` : ""}${e.note ? `<div class="src">${esc(e.note)}</div>` : ""}</li>`;
+}
+
+function renderNow() {
+  const evs = shown(), soon = [], open = [], live = [];
+  for (const e of evs) {
+    if (!e.start && !e.reg.reg_opens) continue;
+    const st = regState(e);
+    if (st.soon !== undefined && st.soon <= 21) soon.push([instantOf(e.reg.reg_opens, e.tz), e, st]);
+    if (e.start) {
+      const a = parseDate(e.start), b = parseDate(e.end || e.start), t = parseDate(todayISO);
+      if (b >= t && (a - t) / DAY <= 10) live.push([a, e]);
+      else if (st.lamp.startsWith("green lit") || st.text.startsWith("Sold out")) open.push([a, e, st]);
+    }
+  }
+  const li = (rows, f) => rows.sort((x, y) => x[0] - y[0]).slice(0, 5).map(f).join("");
+  const nextOpen = evs.filter((e) => regState(e).soon > 21).sort((x, y) => instantOf(x.reg.reg_opens, x.tz) - instantOf(y.reg.reg_opens, y.tz))[0];
+  $("#now").innerHTML = `
+    <section><h2><span class="lamp amber lit"></span>Registration opening soon</h2>${soon.length
+      ? `<ul>${li(soon, ([, e]) => `<li><b><a href="#ev-${e.id}">${esc(e.short)}</a></b>${esc(fmtWhen(e.reg.reg_opens, e.tz))}</li>`)}</ul>`
+      : `<p class="empty">Nothing opens in the next three weeks.${nextOpen ? ` Next up: ${esc(nextOpen.short)}, ${esc(fmtDay(instantOf(nextOpen.reg.reg_opens, nextOpen.tz)))}.` : ""}</p>`}</section>
+    <section><h2><span class="lamp green lit"></span>Open or selling out</h2>${open.length
+      ? `<ul>${li(open, ([a, e, st]) => `<li><b><a href="#ev-${e.id}">${esc(e.short)}</a></b>${esc(st.text)}. Event ${esc(fmtDay(a))}</li>`)}</ul>`
+      : `<p class="empty">No confirmed open registrations right now.</p>`}</section>
+    <section><h2><span class="lamp blue lit"></span>Happening this week</h2>${live.length
+      ? `<ul>${li(live, ([, e]) => `<li><b><a href="#ev-${e.id}">${esc(e.short)}</a></b>${esc(dateRange(e))}, ${esc(e.city || e.region)}</li>`)}</ul>`
+      : `<p class="empty">No big events in the next ten days.</p>`}</section>`;
+}
+
+function renderCal() {
+  const y = calMonth.getFullYear(), m = calMonth.getMonth();
+  $("#cal-h").textContent = calMonth.toLocaleDateString(undefined, { month: "long", year: "numeric" });
+  const first = new Date(y, m, 1), startPad = first.getDay(), days = new Date(y, m + 1, 0).getDate();
+  const marks = {};
+  const add = (iso, html) => (marks[iso] ||= []).push(html);
+  for (const e of shown()) {
+    if (e.start) for (let d = parseDate(e.start); d <= parseDate(e.end || e.start); d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1))
+      add(isoLocal(d), `<a class="mark ev" href="#ev-${e.id}"><span class="lamp blue"></span><span>${esc(e.short)}</span></a>`);
+    for (const [f, label, lamp] of [["reg_opens", "reg opens", "amber lit"], ["reg_closes", "reg closes", "red"]]) {
+      const r = e.reg[f]; if (!r) continue;
+      add(isoLocal(instantOf(r, e.tz)), `<a class="mark" href="#ev-${e.id}"><span class="lamp ${lamp}"></span><span>${esc(e.short)} ${label}</span></a>`);
+    }
+  }
+  let html = [...Array(7)].map((_, i) => `<div class="dow">${new Date(2023, 0, i + 1).toLocaleDateString(undefined, { weekday: "short" })}</div>`).join("");
+  for (let i = 0; i < startPad; i++) html += `<div class="day out"></div>`;
+  for (let d = 1; d <= days; d++) {
+    const iso = isoLocal(new Date(y, m, d));
+    html += `<div class="day${iso === todayISO ? " today" : ""}"><span class="d">${d}</span>${(marks[iso] || []).join("")}</div>`;
+  }
+  const tail = (7 - ((startPad + days) % 7)) % 7;
+  for (let i = 0; i < tail; i++) html += `<div class="day out"></div>`;
+  $("#grid").innerHTML = html;
+}
+
+function renderList() {
+  const evs = shown(), dated = evs.filter((e) => e.start), tba = evs.filter((e) => !e.start);
+  let html = "", cur = "";
+  for (const e of dated) {
+    const key = e.start.slice(0, 7);
+    if (key !== cur) {
+      html += `${cur ? "</section>" : ""}<section class="month"><h2>${parseDate(e.start).toLocaleDateString(undefined, { month: "long", year: "numeric" })}</h2>`;
+      cur = key;
+    }
+    html += eventRow(e);
+  }
+  $("#list").innerHTML = html + (cur ? "</section>" : `<p class="empty">No dated events for this region yet.</p>`);
+  $("#tba").innerHTML = tba.map(tbaItem).join("");
+}
+
+function feedUrl(file) { return new URL(file, location.href).href; }
+function renderSub() {
+  const sel = $("#feed");
+  sel.innerHTML = DATA.feeds.map((f) => `<option value="${esc(f.file)}">${esc(f.name)}</option>`).join("");
+  const sync = () => {
+    const f = DATA.feeds.find((x) => x.file === sel.value), url = feedUrl(sel.value), webcal = url.replace(/^https?:/, "webcal:");
+    $("#sub-apple").href = webcal;
+    $("#sub-google").href = `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcal)}`;
+    $("#sub-outlook").href = `https://outlook.live.com/calendar/0/addfromweb?url=${encodeURIComponent(url)}&name=${encodeURIComponent("Pinball: " + f.name)}`;
+  };
+  sel.onchange = sync; sync();
+  $("#sub-copy").onclick = async () => {
+    try { await navigator.clipboard.writeText(feedUrl(sel.value)); toast("Calendar link copied"); }
+    catch { toast("Copy failed. The link is " + feedUrl(sel.value)); }
+  };
+}
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 2600); }
+
+function renderFilters() {
+  const regions = ["all", ...DATA.regions];
+  $("#filters").innerHTML = regions.map((r) => `<button class="chip" type="button" data-r="${esc(r)}" aria-pressed="${r === region}">${r === "all" ? "Everywhere" : esc(r)}</button>`).join("");
+  $("#filters").onclick = (ev) => {
+    const b = ev.target.closest("[data-r]"); if (!b) return;
+    region = b.dataset.r;
+    try { localStorage.setItem("region", region); } catch {}
+    const f = DATA.feeds.find((x) => x.name === region); if (f) { $("#feed").value = f.file; $("#feed").onchange(); }
+    renderAll();
+  };
+}
+function renderAll() {
+  document.querySelectorAll("#filters .chip").forEach((c) => c.setAttribute("aria-pressed", c.dataset.r === region));
+  renderNow(); renderCal(); renderList();
+}
+
+try { const r = localStorage.getItem("region"); if (r && (r === "all" || DATA.regions.includes(r))) region = r; } catch {}
+$("#prev").onclick = () => { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() - 1, 1); renderCal(); };
+$("#next").onclick = () => { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 1); renderCal(); };
+$("#today").onclick = () => { calMonth = new Date(now.getFullYear(), now.getMonth(), 1); renderCal(); };
+$("#built").textContent = `Last updated ${new Date(DATA.built_at).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })}.`;
+renderSub(); renderFilters(); renderAll();
+if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
+</script>
+</body>
+</html>

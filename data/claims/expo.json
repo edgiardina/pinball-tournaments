@@ -1,0 +1,18 @@
+{
+ "event_id": "expo",
+ "checked_at": "2026-11-19T21:00:00+00:00",
+ "claims": [
+  {
+   "field": "event_start",
+   "value": "2027-10-13",
+   "quote": "October 13 - October 16, 2027",
+   "url": "https://pinballexpo.com/tournament-schedule/"
+  },
+  {
+   "field": "event_end",
+   "value": "2027-10-16",
+   "quote": "October 13 - October 16, 2027",
+   "url": "https://pinballexpo.com/tournament-schedule/"
+  }
+ ]
+}

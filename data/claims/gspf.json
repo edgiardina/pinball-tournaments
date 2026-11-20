@@ -1,0 +1,18 @@
+{
+ "event_id": "gspf",
+ "checked_at": "2026-11-19T21:00:00+00:00",
+ "claims": [
+  {
+   "field": "event_start",
+   "value": "2027-05-14",
+   "quote": "MAY 14th-16th, 2027",
+   "url": "https://www.goldenstatepinball.org/tournament/"
+  },
+  {
+   "field": "event_end",
+   "value": "2027-05-16",
+   "quote": "MAY 14th-16th, 2027",
+   "url": "https://www.goldenstatepinball.org/tournament/"
+  }
+ ]
+}
