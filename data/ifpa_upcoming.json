@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T19:22:06+00:00",
+ "generated_at": "2026-11-20T20:42:18+00:00",
  "events": {
   "indisc": [
    {
@@ -218,6 +218,71 @@
     "stateprov": "NSW",
     "country": "AU",
     "website": "https://auspinballopen.com/tournaments/",
+    "prereg_flag_date": null
+   }
+  ],
+  "pasttimesarcademegamatch": [],
+  "winterbashyearendpinball": [
+   {
+    "ifpa_id": 122371,
+    "name": "Winter Bash 2026 - Year End Pinball Tournament",
+    "division": "Main Tournament",
+    "start": "2026-12-12",
+    "end": "2026-12-13",
+    "city": "Wood River",
+    "stateprov": "IL",
+    "country": "US",
+    "website": "https://www.facebook.com/events/atomic-pinball-arcade/winter-bash-2026-stern-pro-circuit-pinball-tournament/1025864366778217/",
+    "prereg_flag_date": null
+   }
+  ],
+  "borspinballopen": [],
+  "qcsweekendlevel1matchpla": [],
+  "obxflippersarcadefallpin": [],
+  "electricbatanniversaryba": [],
+  "emeraldcitycup": [
+   {
+    "ifpa_id": 122098,
+    "name": "Emerald City Cup",
+    "division": "Main Tournament",
+    "start": "2027-04-02",
+    "end": "2027-04-04",
+    "city": "Seattle",
+    "stateprov": "WA",
+    "country": "US",
+    "website": "https://www.facebook.com/seattlepinballservices",
+    "prereg_flag_date": null
+   }
+  ],
+  "nordwestschweizerflipper": [],
+  "abileneshowdown": [
+   {
+    "ifpa_id": 123798,
+    "name": "DFW PINBALL LEAGUE - 5TH ANNUAL ABILENE SHOWDOWN",
+    "division": "Main Tournament",
+    "start": "2027-02-27",
+    "end": "2027-02-28",
+    "city": "Abilene",
+    "stateprov": "TX",
+    "country": "US",
+    "website": "https://www.eventbrite.com/e/the-5th-annual-abilene-showdown-main-event-tickets-2004689579497",
+    "prereg_flag_date": "2027-01-05"
+   }
+  ],
+  "hikerclassiccup": [],
+  "sweepercitypinballchampi": [],
+  "concordopen": [],
+  "southeastflipperfestival": [
+   {
+    "ifpa_id": 123902,
+    "name": "Southeast Flipper Festival Winter 2027",
+    "division": "Main Tournament",
+    "start": "2027-02-25",
+    "end": "2027-02-28",
+    "city": "Marietta",
+    "stateprov": "GA",
+    "country": "US",
+    "website": "https://www.facebook.com/groups/georgiapinball",
     "prereg_flag_date": null
    }
   ]
