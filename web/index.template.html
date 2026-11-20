@@ -150,6 +150,15 @@ footer .credit { margin: 28px 0 0; padding-top: 16px; border-top: 1px solid var(
 @media (max-width: 560px) { .ev-row { grid-template-columns: 76px 1fr; gap: 12px; } .date-block .num { font-size: 40px; } .date-block .num.range { font-size: 30px; } .ev-row h3 { font-size: 25px; } .month h2 { font-size: 44px; } }
 
 /* TBA */
+.mast .mast-cta { margin-top: 10px; font-weight: 700; }
+.contribute { margin: 48px 0 0; background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; }
+.contribute h2 { font-size: 34px; font-weight: 900; margin: 0 0 4px; }
+.contribute > p { margin: 0 0 16px; color: var(--ink-soft); max-width: 44em; }
+.contribute-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contribute-opts p { margin: 8px 0 0; font-size: 15px; color: var(--ink-soft); }
+.contribute-opts .btn { width: 100%; }
+.contribute small { display: block; margin-top: 14px; color: var(--ink-soft); }
+@media (max-width: 760px) { .contribute-opts { grid-template-columns: 1fr; } }
 .tba h2 { font-size: 40px; font-weight: 900; margin: 48px 0 6px; }
 .tba > p { margin: 0 0 12px; color: var(--ink-soft); max-width: 44em; }
 .tba-list { list-style: none; padding: 0; margin: 0; columns: 2 300px; column-gap: 32px; }
@@ -184,6 +193,7 @@ footer .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; 
     <div>
       <h1><span>Big pinball</span><span>tournaments</span></h1>
       <p>Spots at the big events go fast. This page tracks when registration opens and when each event happens, and checks every organizer's website each night.</p>
+      <p class="mast-cta"><a href="#contribute">Missing an event? Anyone can add one.</a></p>
     </div>
     <aside class="sub" aria-labelledby="sub-h">
       <h2 id="sub-h">Put it in your calendar</h2>
@@ -224,6 +234,22 @@ footer .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; 
     <ul class="tba-list" id="tba"></ul>
   </section>
 
+  <section class="contribute" id="contribute" aria-labelledby="contribute-h">
+    <h2 id="contribute-h">Missing an event?</h2>
+    <p>Anyone can add to this list. A script checks each request against IFPA and replies in a minute or two. Nobody has to approve it.</p>
+    <div class="contribute-opts">
+      <div>
+        <a class="btn" href="https://github.com/edgiardina/pinball-tournaments/issues/new?template=add-event.yml" rel="noopener">Add an event</a>
+        <p>For a big event that isn't here. A past edition needs a WPPR value of 75 or more on IFPA. Have its IFPA link and website ready.</p>
+      </div>
+      <div>
+        <a class="btn ghost" href="https://github.com/edgiardina/pinball-tournaments/issues/new?template=suggest-website.yml" rel="noopener">Suggest a website</a>
+        <p>For an event that's here but shows no dates. Tell us the page where the organizer posts them.</p>
+      </div>
+    </div>
+    <small>Both open a short form on GitHub. You need a free GitHub account.</small>
+  </section>
+
   <noscript><p>This page needs JavaScript to show events. The calendar feed works without it: <a href="calendar.ics">calendar.ics</a>.</p></noscript>
 
   <footer>
@@ -235,7 +261,7 @@ footer .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; 
       <div>
         <h2>Run one of these events?</h2>
         <p>Put your dates, registration time and time zone on your website in plain text, with the year. This page picks them up overnight. Dates that only live in Discord or Facebook can't be read.</p>
-        <p>Event not on the list? <a href="https://github.com/edgiardina/pinball-tournaments/issues/new?template=add-event.yml" rel="noopener">Submit it</a>. Know a better page for an event that's here? <a href="https://github.com/edgiardina/pinball-tournaments/issues/new?template=suggest-website.yml" rel="noopener">Suggest the website</a>. Both need a free GitHub account. A script checks each request and replies in a minute or two. To be added, a past edition of an event needs a WPPR value of 75 or more on IFPA.</p>
+        <p>Is your event missing? <a href="#contribute">Add it here</a>.</p>
         <p id="built"></p>
       </div>
     </div>
@@ -249,6 +275,7 @@ const DATA = /*__DATA__*/null;
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const DAY = 864e5;
+const SUGGEST_URL = "https://github.com/edgiardina/pinball-tournaments/issues/new?template=suggest-website.yml";
 const now = new Date();
 const todayISO = isoLocal(now);
 let region = "all";
@@ -355,7 +382,8 @@ function eventRow(e) {
 
 function tbaItem(e) {
   const last = e.past ? `Last held ${parseDate(e.past.last_start).toLocaleDateString(undefined, { month: "long", year: "numeric" })}` : "";
-  const site = e.watch[0] ? `<a href="${esc(e.watch[0].url)}" rel="noopener">${esc(e.watch[0].label)}</a>` : "No website on file";
+  const site = e.watch[0] ? `<a href="${esc(e.watch[0].url)}" rel="noopener">${esc(e.watch[0].label)}</a>`
+    : `No website on file. <a href="${SUGGEST_URL}&event=${encodeURIComponent(e.short)}" rel="noopener">Know it? Suggest one</a>`;
   return `<li><b>${esc(e.name)}</b>${spcBadge(e)}<br>${esc([where(e), last].filter(Boolean).join(". "))}<br>${site}
     ${e.headline ? `<p class="quote">“${esc(e.headline.value)}”</p>` : ""}${e.note ? `<div class="src">${esc(e.note)}</div>` : ""}</li>`;
 }
