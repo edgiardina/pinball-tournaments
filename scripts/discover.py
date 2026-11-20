@@ -60,8 +60,11 @@ def main() -> None:
     for v in by_event.values():
         v.sort(key=lambda x: (x["start"] or "", x["name"]))
 
-    out = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "events": by_event}
-    (ROOT / "data" / "ifpa_upcoming.json").write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
+    path = ROOT / "data" / "ifpa_upcoming.json"
+    old = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    if old.get("events") != by_event:  # skip the write (and the CI commit) when nothing changed
+        out = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "events": by_event}
+        path.write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
     hits = {k: len(v) for k, v in by_event.items() if v}
     print(f"matched {sum(hits.values())} tournaments to {len(hits)} events: {hits}")
 
