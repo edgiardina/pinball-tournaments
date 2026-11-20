@@ -11,7 +11,8 @@ correct answer. A guess is a wrong answer.
    records status and `changed_at` in `data/pages/index.json`.
 2. Pick the events to read: every event whose page `changed_at` is newer than the `checked_at` in
    its `data/claims/<id>.json`, every event with no claims file, and every event whose claims file
-   is older than 7 days.
+   is older than 7 days. **If the list is empty, commit and push `data/pages/` (step 6) and stop.**
+   Most nights nothing changes, and the run should be that short.
 3. For each picked event, read its page files in `data/pages/` (use `data/catalog.json` to map
    events to URLs). Write `data/claims/<event_id>.json` as described below. Write the complete
    current picture each time. A field you leave out is removed from the site.
