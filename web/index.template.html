@@ -142,6 +142,7 @@ footer .credit { margin: 28px 0 0; padding-top: 16px; border-top: 1px solid var(
 .src summary { display: inline; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 .src blockquote { margin: 6px 0 0; padding-left: 10px; border-left: 2px solid var(--rule); }
 .spc { display: inline-block; font: 700 12px/1 var(--body); padding: 4px 7px; border-radius: 4px; border: 1px solid var(--ink); color: var(--ink); margin-left: 8px; vertical-align: middle; letter-spacing: .02em; }
+.spc.past { border-style: dashed; color: var(--ink-soft); border-color: var(--ink-soft); }
 .spc-toggle { margin-left: auto; }
 @media (max-width: 760px) { .spc-toggle { margin-left: 0; } }
 .changed { display: inline-block; font: 700 12px/1 var(--body); padding: 4px 7px; border-radius: 4px; background: var(--lamp-amber); color: #241500; margin-left: 6px; vertical-align: middle; }
@@ -312,7 +313,13 @@ function sourceLine(src, kind) {
 }
 const recentlyChanged = (f) => f?.previous && (now - new Date(f.previous.replaced_at)) < 14 * DAY;
 
-const spcBadge = (e) => e.spc ? `<span class="spc" title="Stern Pro Circuit event in ${e.spc.season}">SPC ${e.spc.season}</span>` : "";
+// e.spc.season is the latest season IFPA confirms. Only call the edition itself an SPC stop when the years match.
+function spcBadge(e) {
+  if (!e.spc) return "";
+  const year = e.start ? parseDate(e.start).getFullYear() : null, s = e.spc.season;
+  if (year === s) return `<span class="spc" title="Stern Pro Circuit stop in ${s}">SPC ${s}</span>`;
+  return `<span class="spc past" title="Was a Stern Pro Circuit stop in ${s}. ${year ? `The ${year} schedule isn't confirmed yet.` : ""}">SPC in ${s}</span>`;
+}
 
 function dateRange(e) {
   const a = parseDate(e.start), b = parseDate(e.end || e.start);
