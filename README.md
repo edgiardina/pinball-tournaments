@@ -13,7 +13,8 @@ calendar. A script checks each date against the exact page text before the date 
 
 | Step | What it does | Runs |
 |---|---|---|
-| `scripts/build_seeds.py` | Finds big recurring events in 3 years of IFPA results (WPPR value 75 and more). Writes `data/seed_candidates.csv`. | Once a year, by hand |
+| `scripts/build_seeds.py` | Finds big recurring events in 3 years of IFPA results (WPPR value 75 and more). Writes `data/seed_candidates.csv`. | Weekly, from `auto_add.py` |
+| `scripts/auto_add.py` | Adds new big events to `data/catalog.json`. See "New events" below. | Mondays, GitHub Action |
 | `data/catalog.json` | The list of events to track. Edit it by hand. | When you add or remove an event |
 | `scripts/discover.py` | Gets the upcoming IFPA tournaments and matches them to catalog events by name. With `--spc` (the nightly build only), it also finds the Stern Pro Circuit events from the IFPA tournament details. | Nightly, GitHub Action |
 | `scripts/intake.py` | Reads an "Add an event" or "Suggest a website" issue. Changes `data/catalog.json` if the request passes the rules below. Replies and closes the issue. | When someone opens an issue |
@@ -32,6 +33,18 @@ calendar. A script checks each date against the exact page text before the date 
 - An event that has ended goes back to "Dates not announced yet".
 - If the script cannot read a page, the last good values stay. If the page no longer says a thing,
   the thing goes off the site.
+
+## New events
+
+Each Monday, `scripts/auto_add.py` adds an event to the catalog when all of these are true:
+
+- It had an edition with a WPPR value of 75 or more in 2 different years or more.
+- 80 players or more played it at its largest.
+- It had an edition in the last 400 days.
+- It is not an invitational or a league, and no catalog event matches it.
+
+It adds 5 events at most each week. The bar is higher than the bar for the issue form, because no
+person asks for these events.
 
 ## Add an event
 

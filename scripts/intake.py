@@ -65,7 +65,10 @@ def region_for(tz: str, country: str) -> str:
 
 def clean_name(name: str) -> str:
     # "THE 4TH ANNUAL ABILENE SHOWDOWN MAIN EVENT" -> "Abilene Showdown", "Silverball Super Showdown 5" -> "Silverball Super Showdown"
-    n = re.sub(r"\b(19|20)\d\d\b|\b\d+(st|nd|rd|th)?\b|\b[IVX]+\b(?=\s*$)", " ", name, flags=re.I)
+    # Only edition markers go: years, ordinals, "8 year", and a trailing number or Roman numeral.
+    # Numbers inside the name stay ("Level 1 Matchplay").
+    n = re.sub(r"\b(19|20)\d\d\b|\b\d+(st|nd|rd|th)\b|\b\d+[- ]years?\b|\b\d+\s*$|\b[IVX]+\b(?=\s*$)", " ", name, flags=re.I)
+    n = re.sub(r"^\s*[IVXL]{2,}\s+", " ", n)  # "XII Polish Pinball Open"; 2+ letters so "I Love Pinball" survives
     n = re.sub(r"\s*[-:|]\s*(main|a|classics?|womens?|juniors?|fri|sat|sun)\b.*$", "", n, flags=re.I)
     n = re.sub(r"\b(main (event|tournament)|annual)\b", " ", n, flags=re.I)
     n = re.sub(r"^\s*the\b", " ", n, flags=re.I)
@@ -74,7 +77,9 @@ def clean_name(name: str) -> str:
 
 
 def name_pattern(short: str) -> str:
-    return r"\s+".join(re.escape(w) for w in short.lower().split())
+    # Allow up to two extra words between ours, so "Electric Bat 9 year Anniversary Bash"
+    # still matches "Electric Bat Anniversary Bash".
+    return r"\W+(?:\S+\s+){0,2}?".join(re.escape(w) for w in short.lower().split())
 
 
 def slug(s: str) -> str:
@@ -179,14 +184,12 @@ def evaluate(fields: dict[str, str], catalog: list[dict]) -> dict:
 def append(entry: dict) -> None:
     # Keep the file's hand-written one-event-per-few-lines layout instead of re-dumping it.
     text = CATALOG.read_text(encoding="utf-8")
-    added = entry.pop("_added")
-    line = "    " + json.dumps(entry, ensure_ascii=False)
+    line = "    " + json.dumps({k: v for k, v in entry.items() if k != "_added"}, ensure_ascii=False)
     head, sep, tail = text.rpartition("\n  ]")
     if not sep:
         raise SystemExit("catalog.json layout changed; can't append")
     CATALOG.write_text(f"{head.rstrip()},\n{line}{sep}{tail}", encoding="utf-8")
     json.loads(CATALOG.read_text(encoding="utf-8"))  # fail loudly if the append broke the file
-    entry["_added"] = added
 
 
 def main() -> int:

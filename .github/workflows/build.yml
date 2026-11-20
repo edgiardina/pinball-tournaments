@@ -26,6 +26,13 @@ jobs:
           python-version: "3.12"
       - name: Tests
         run: python -m unittest discover -s tests
+      - name: Add new big events (Mondays)
+        if: github.event_name == 'schedule'
+        env:
+          IFPA_API_KEY: ${{ secrets.IFPA_API_KEY }}
+        run: |
+          if [ -z "$IFPA_API_KEY" ] || [ "$(date -u +%u)" != 1 ]; then exit 0; fi
+          python scripts/auto_add.py
       - name: IFPA discovery
         env:
           IFPA_API_KEY: ${{ secrets.IFPA_API_KEY }}
@@ -40,8 +47,8 @@ jobs:
         run: |
           git config user.name "pinball-tournaments-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/ifpa_upcoming.json data/state.json
-          git diff --cached --quiet || (git commit -m "IFPA refresh $(date -u +%F)" && git push)
+          git add data/ifpa_upcoming.json data/state.json data/catalog.json data/seed_candidates.csv
+          git diff --cached --quiet || (git commit -m "IFPA refresh $(date -u +%F)" && git pull --rebase && git push)
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

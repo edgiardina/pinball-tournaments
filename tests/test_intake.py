@@ -36,6 +36,17 @@ class FormTests(unittest.TestCase):
         self.assertEqual(intake.clean_name("Silverball Super Showdown 5"), "Silverball Super Showdown")
         self.assertEqual(intake.clean_name("Pinball Expo 2026 - Main"), "Pinball Expo")
 
+    def test_clean_name_keeps_numbers_that_are_part_of_the_name(self):
+        self.assertEqual(intake.clean_name("QCS Weekend - Level 1 Matchplay"), "QCS Weekend - Level 1 Matchplay")
+        self.assertEqual(intake.clean_name("Electric Bat 8 year Anniversary Bash - Classics"), "Electric Bat Anniversary Bash")
+        self.assertEqual(intake.clean_name("XII Polish Pinball Open"), "Polish Pinball Open")
+
+    def test_pattern_matches_next_years_edition(self):
+        for this, nxt in [("Electric Bat 8 year Anniversary Bash", "Electric Bat 9 year Anniversary Bash"),
+                          ("XII Polish Pinball Open", "XIII Polish Pinball Open"),
+                          ("Silverball Super Showdown 5", "Silverball Super Showdown 6")]:
+            self.assertRegex(nxt, re.compile(intake.name_pattern(intake.clean_name(this)), re.I))
+
     def test_pattern_matches_the_source_name(self):
         for n in ["THE 4TH ANNUAL ABILENE SHOWDOWN MAIN EVENT", "Hello (World) Open IV"]:
             self.assertRegex(n, re.compile(intake.name_pattern(intake.clean_name(n)), re.I))
