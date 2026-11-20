@@ -62,10 +62,43 @@ class TextExtractor(HTMLParser):
             self.out.append(data)
 
 
+EMBEDDED_HEADER = "[Text from the page's embedded data. The page draws it with JavaScript.]"
+MIN_VISIBLE_WORDS = 40
+
+
+def embedded_strings(raw: str) -> list[str]:
+    """Human text inside script data, for sites (Canva, some builders) whose HTML has none.
+
+    Canva nests JSON inside a JS string, so a string can be escaped two or three times deep.
+    Keep anything that reads like copy: a digit or at least four words, and no code/URL bits.
+    """
+    seen, out = set(), []
+    for m in re.finditer(r'"((?:[^"\\]|\\.){12,})"', raw):
+        s = m.group(1)
+        for _ in range(3):
+            try:
+                s2 = json.loads(f'"{s}"')
+            except ValueError:
+                break
+            if s2 == s:
+                break
+            s = s2
+        s = s.strip()
+        if (s in seen or re.search(r"https?://|[{};=<>]|^_|\.(js|css)\b", s)
+                or not re.search(r"[A-Za-z]{3,} [A-Za-z]{2,}", s)
+                or not (re.search(r"\d", s) or len(s.split()) >= 4)):
+            continue
+        seen.add(s)
+        out.append(s)
+    return out
+
+
 def html_to_text(raw: str, base_url: str) -> str:
     p = TextExtractor(base_url)
     p.feed(raw)
     text = html.unescape("".join(p.out)).replace("\xa0", " ")
+    if len(text.split()) < MIN_VISIBLE_WORDS and (extra := embedded_strings(raw)):
+        text += "\n\n" + EMBEDDED_HEADER + "\n\n" + "\n\n".join(extra)
     lines = [re.sub(r"[ \t\r\f\v]+", " ", ln).strip() for ln in text.split("\n")]
     out, blank = [], False
     for ln in lines:

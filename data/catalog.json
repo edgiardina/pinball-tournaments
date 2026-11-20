@@ -55,7 +55,7 @@
      "watch": ["https://texaspinball.com/tournaments/"]},
     {"id": "zoo", "name": "Pinball at the Zoo", "short": "Pinball at the Zoo", "tz": "America/Detroit", "region": "US Central",
      "keys": ["Kalamazoo|pinball at the"], "patterns": ["pinball at the zoo"],
-     "watch": []},
+     "watch": ["https://pinballatthezoo.com/"]},
     {"id": "d82spc", "name": "District 82 Summer Pinball Classic", "short": "D82 Summer Classic", "tz": "America/Chicago", "region": "US Central",
      "keys": ["De Pere|d spc event", "De Pere|d summer pinball"], "patterns": ["d82 spc", "d82 summer pinball classic", "summer pinball classic"],
      "watch": ["https://district82.com/"]},

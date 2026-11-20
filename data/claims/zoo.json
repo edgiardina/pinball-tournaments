@@ -1,0 +1,9 @@
+{
+  "event_id": "zoo",
+  "checked_at": "2026-11-20T20:30:00Z",
+  "claims": [
+    {"field": "event_start", "value": "2027-04-15", "quote": "April 15-17, 2027", "url": "https://pinballatthezoo.com/"},
+    {"field": "event_end", "value": "2027-04-17", "quote": "April 15-17, 2027", "url": "https://pinballatthezoo.com/"},
+    {"field": "reg_method", "value": "walk_up", "quote": "Best Game/Herb style qualifying on at least 6 machines. Cost is $1 per game.", "url": "https://pinballatthezoo.com/"}
+  ]
+}

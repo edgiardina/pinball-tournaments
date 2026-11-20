@@ -119,6 +119,15 @@
   "file": "beach--0.txt",
   "status": "error"
  },
+ "https://pinballatthezoo.com/": {
+  "changed_at": "2026-11-20T20:09:16+00:00",
+  "event_id": "zoo",
+  "fetched_at": "2026-11-20T20:09:16+00:00",
+  "file": "zoo--0.txt",
+  "last_ok_at": "2026-11-20T20:09:16+00:00",
+  "sha256": "09ff55b8a7c7e3cf08b6b4342a09994f934b21c26f3e4fd43b07afc2059da467",
+  "status": "ok"
+ },
  "https://pinballexpo.com/tournament-schedule/": {
   "changed_at": "2026-11-20T00:32:32+00:00",
   "event_id": "expo",
