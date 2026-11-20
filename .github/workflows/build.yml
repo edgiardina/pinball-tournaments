@@ -29,7 +29,9 @@ jobs:
       - name: IFPA discovery
         env:
           IFPA_API_KEY: ${{ secrets.IFPA_API_KEY }}
-        run: python scripts/discover.py
+        run: |
+          if [ -z "$IFPA_API_KEY" ]; then echo "::warning::IFPA_API_KEY not set; keeping the committed ifpa_upcoming.json"; exit 0; fi
+          python scripts/discover.py
       - name: Re-verify (drops editions that have ended)
         run: python scripts/verify.py
       - name: Build site
