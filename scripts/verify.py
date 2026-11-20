@@ -185,10 +185,14 @@ def main() -> int:
     readable = {u for u, e in index.items() if e.get("status") == "ok"}
     state_path = DATA / "state.json"
     state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {"events": {}}
+    before = json.dumps({**state, "verified_at": None}, sort_keys=True)
     rejected_total = 0
     for path in sorted((DATA / "claims").glob("*.json")):
         doc = json.loads(path.read_text(encoding="utf-8"))
         eid = doc["event_id"]
+        # Stamp with when the routine read the pages, not when this script ran. CI re-runs verify on
+        # every build, and using "now" made every build rewrite (and commit) every timestamp.
+        read_at = doc.get("checked_at") or now
         st = state["events"].setdefault(eid, {"fields": {}})
         accepted, rejected = {}, []
         for c in doc.get("claims", []):
@@ -208,20 +212,21 @@ def main() -> int:
         for f, g in merged.items():
             old = st["fields"].get(f)
             if f in accepted:
-                g["verified_at"] = now
+                g["verified_at"] = read_at
                 if not old:
-                    g["first_seen_at"] = now
+                    g["first_seen_at"] = read_at
                 elif old.get("value") != g["value"]:
-                    g["first_seen_at"] = now
-                    g["previous"] = {"value": old.get("value"), "replaced_at": now}
+                    g["first_seen_at"] = read_at
+                    g["previous"] = {"value": old.get("value"), "replaced_at": read_at}
         st["fields"] = merged
-        st["checked_at"] = doc.get("checked_at") or now
+        st["checked_at"] = read_at
         st["rejected"] = rejected
         rejected_total += len(rejected)
         print(f"{eid:16} accepted {len(accepted)}  rejected {len(rejected)}" +
               "".join(f"\n    x {r['field']}={r['value']!r}: {r['reason']}" for r in rejected))
-    state["verified_at"] = now
-    state_path.write_text(json.dumps(state, indent=1, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+    if json.dumps({**state, "verified_at": None}, sort_keys=True) != before:  # no-op runs leave the file alone
+        state["verified_at"] = now
+        state_path.write_text(json.dumps(state, indent=1, ensure_ascii=False, sort_keys=True), encoding="utf-8")
     return 0
 
 
