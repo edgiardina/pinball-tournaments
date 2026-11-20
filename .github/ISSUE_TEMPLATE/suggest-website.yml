@@ -1,0 +1,29 @@
+name: Suggest a website
+description: Tell us where an event on wpprfarm.com posts its dates. A script checks it and replies in a minute.
+title: "Suggest a website"
+labels: ["suggest-website"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A script reads this form, not a person. It adds the page to the nightly check when all of these are true:
+
+        - The event is already on the list. To add a new event, use the "Add an event" form.
+        - The page loads, and it isn't Facebook, Discord or another site that turns away automated readers.
+        - The page names the event.
+  - type: input
+    id: event
+    attributes:
+      label: Event
+      description: The name as the site shows it.
+      placeholder: Silverball Super Showdown
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: The page where the organizer posts dates or registration.
+      placeholder: https://example.com/tournament
+    validations:
+      required: true

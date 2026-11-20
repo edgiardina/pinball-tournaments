@@ -1,0 +1,61 @@
+name: Catalog request from issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: build
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    if: contains(github.event.issue.labels.*.name, 'add-event') || contains(github.event.issue.labels.*.name, 'suggest-website')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the request
+        id: check
+        env:
+          IFPA_API_KEY: ${{ secrets.IFPA_API_KEY }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          INTAKE_REPLY: ${{ runner.temp }}/reply.md
+          INTAKE_KIND: ${{ contains(github.event.issue.labels.*.name, 'suggest-website') && 'suggest-website' || 'add-event' }}
+        run: |
+          set +e
+          python scripts/intake.py
+          code=$?
+          set -e
+          if [ "$code" = 0 ]; then echo "added=true" >> "$GITHUB_OUTPUT"; elif [ "$code" = 2 ]; then echo "added=false" >> "$GITHUB_OUTPUT"; else exit "$code"; fi
+      - name: Commit the catalog change
+        if: steps.check.outputs.added == 'true'
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "pinball-tournaments-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/catalog.json
+          git commit -m "Catalog update from issue #$ISSUE"
+          git pull --rebase
+          git push
+      - name: Rebuild the site
+        if: steps.check.outputs.added == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build.yml --repo "$GITHUB_REPOSITORY"
+      - name: Reply and close
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          REASON: ${{ steps.check.outputs.added == 'true' && 'completed' || 'not planned' }}
+        run: |
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/reply.md"
+          gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY" --reason "$REASON"

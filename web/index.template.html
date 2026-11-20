@@ -46,6 +46,16 @@ a { color: var(--lamp-blue); text-underline-offset: 2px; }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 h1, h2, h3, .num { font-family: var(--display); letter-spacing: .01em; }
 
+/* sponsor strip */
+.promo { border-bottom: 1px solid var(--rule); background: var(--panel); }
+.promo a { display: flex; align-items: center; gap: 14px 18px; flex-wrap: wrap; padding: 10px 0; color: var(--ink); text-decoration: none; font-size: 15px; }
+.promo img { height: 26px; width: auto; display: block; }
+.promo span { flex: 1 1 260px; color: var(--ink-soft); }
+.promo b { white-space: nowrap; color: var(--lamp-blue); text-decoration: underline; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .promo b { color: #8fb1ff; } }
+.promo a:hover b { text-decoration-thickness: 2px; }
+footer .credit { margin: 28px 0 0; padding-top: 16px; border-top: 1px solid var(--rule); }
+
 /* masthead */
 .mast { padding: 40px 0 28px; display: grid; gap: 28px; grid-template-columns: 1.3fr 1fr; align-items: end; }
 .mast h1 { font-size: clamp(48px, 9vw, 104px); line-height: .86; font-weight: 900; margin: 0; }
@@ -62,8 +72,9 @@ h1, h2, h3, .num { font-family: var(--display); letter-spacing: .01em; }
 .btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; font: 700 15px/1 var(--body); padding: 11px 12px;
   border-radius: 8px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); text-decoration: none; cursor: pointer; }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
-a.btn, a.btn:visited { color: var(--paper); }
-a.btn.ghost, a.btn.ghost:visited { color: var(--ink); }
+/* :root prefix outranks the dark-mode link color rule */
+:root a.btn, :root a.btn:visited { color: var(--paper); }
+:root a.btn.ghost, :root a.btn.ghost:visited { color: var(--ink); }
 .sub small { display: block; margin-top: 10px; font-size: 13px; color: var(--ink-soft); }
 
 /* lamp inserts */
@@ -130,6 +141,9 @@ a.btn.ghost, a.btn.ghost:visited { color: var(--ink); }
 .src details { display: inline; }
 .src summary { display: inline; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 .src blockquote { margin: 6px 0 0; padding-left: 10px; border-left: 2px solid var(--rule); }
+.spc { display: inline-block; font: 700 12px/1 var(--body); padding: 4px 7px; border-radius: 4px; border: 1px solid var(--ink); color: var(--ink); margin-left: 8px; vertical-align: middle; letter-spacing: .02em; }
+.spc-toggle { margin-left: auto; }
+@media (max-width: 760px) { .spc-toggle { margin-left: 0; } }
 .changed { display: inline-block; font: 700 12px/1 var(--body); padding: 4px 7px; border-radius: 4px; background: var(--lamp-amber); color: #241500; margin-left: 6px; vertical-align: middle; }
 .reg-btn { margin-top: 12px; display: inline-flex; }
 @media (max-width: 560px) { .ev-row { grid-template-columns: 76px 1fr; gap: 12px; } .date-block .num { font-size: 40px; } .date-block .num.range { font-size: 30px; } .ev-row h3 { font-size: 25px; } .month h2 { font-size: 44px; } }
@@ -152,6 +166,18 @@ footer .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; 
 </style>
 </head>
 <body>
+<div class="promo">
+  <div class="wrap">
+    <a href="https://pinventory.app/?utm_source=wpprfarm&amp;utm_medium=banner&amp;utm_campaign=tournament-site" rel="sponsored">
+      <picture>
+        <source srcset="assets/pinventory-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="assets/pinventory-light.png" alt="Pinventory" width="161" height="26">
+      </picture>
+      <span>Log maintenance, track parts, and record collections and splits for your pinball machines.</span>
+      <b>Get started free</b>
+    </a>
+  </div>
+</div>
 <div class="wrap">
   <header class="mast">
     <div>
@@ -175,7 +201,7 @@ footer .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; 
 
   <div class="now" id="now"></div>
 
-  <div class="filters" id="filters" role="group" aria-label="Filter by region"></div>
+  <div class="filters" id="filters" role="group" aria-label="Filter events"></div>
 
   <section class="cal" aria-labelledby="cal-h">
     <header>
@@ -208,9 +234,11 @@ footer .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; 
       <div>
         <h2>Run one of these events?</h2>
         <p>Put your dates, registration time and time zone on your website in plain text, with the year. This page picks them up overnight. Dates that only live in Discord or Facebook can't be read.</p>
+        <p>Event not on the list? <a href="https://github.com/edgiardina/pinball-tournaments/issues/new?template=add-event.yml" rel="noopener">Submit it</a>. Know a better page for an event that's here? <a href="https://github.com/edgiardina/pinball-tournaments/issues/new?template=suggest-website.yml" rel="noopener">Suggest the website</a>. Both need a free GitHub account. A script checks each request and replies in a minute or two. To be added, a past edition of an event needs a WPPR value of 75 or more on IFPA.</p>
         <p id="built"></p>
       </div>
     </div>
+    <p class="credit">Another banger from <a href="https://github.com/edgiardina">Ed Giardina</a></p>
   </footer>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -223,6 +251,7 @@ const DAY = 864e5;
 const now = new Date();
 const todayISO = isoLocal(now);
 let region = "all";
+let spcOnly = false;
 let calMonth = new Date(now.getFullYear(), now.getMonth(), 1);
 
 function isoLocal(d) { return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; }
@@ -253,7 +282,7 @@ function fmtWhen(r, eventTz) {
 }
 const instantOf = (r, tz) => r.value.includes("T") ? zoned(r.value, r.tz || tz) : parseDate(r.value);
 const where = (e) => [e.city, e.stateprov, e.country].filter(Boolean).join(", ");
-const shown = () => DATA.events.filter((e) => region === "all" || e.region === region);
+const shown = () => DATA.events.filter((e) => (region === "all" || e.region === region) && (!spcOnly || e.spc));
 
 function regState(e) {
   const r = e.reg, s = r.reg_status?.value;
@@ -283,6 +312,8 @@ function sourceLine(src, kind) {
 }
 const recentlyChanged = (f) => f?.previous && (now - new Date(f.previous.replaced_at)) < 14 * DAY;
 
+const spcBadge = (e) => e.spc ? `<span class="spc" title="Stern Pro Circuit event in ${e.spc.season}">SPC ${e.spc.season}</span>` : "";
+
 function dateRange(e) {
   const a = parseDate(e.start), b = parseDate(e.end || e.start);
   if (+a === +b) return fmtDay(a, { weekday: "short" });
@@ -304,7 +335,7 @@ function eventRow(e) {
     <div class="date-block"><span class="num${+a !== +b && a.getMonth() === b.getMonth() ? " range" : ""}">${a.getDate()}${+a !== +b && a.getMonth() === b.getMonth() ? "–" + b.getDate() : ""}</span>
       <small>${a.toLocaleDateString(undefined, { weekday: "short" })}${+a !== +b ? "–" + b.toLocaleDateString(undefined, { weekday: "short", month: a.getMonth() !== b.getMonth() ? "short" : undefined, day: a.getMonth() !== b.getMonth() ? "numeric" : undefined }) : ""}</small></div>
     <div>
-      <h3>${esc(e.name)}${recentlyChanged(e.reg.reg_opens) || recentlyChanged(e.date_source) ? '<span class="changed">Date changed</span>' : ""}</h3>
+      <h3>${esc(e.name)}${spcBadge(e)}${recentlyChanged(e.reg.reg_opens) || recentlyChanged(e.date_source) ? '<span class="changed">Date changed</span>' : ""}</h3>
       <div class="where">${esc(where(e) || e.region)}</div>
       <div class="status">${live ? '<span class="lamp blue lit blink"></span>Happening now' : `<span class="lamp ${st.lamp}"></span>${esc(st.text)}`}${st.sub ? ` <span class="detail">${esc(st.sub)}</span>` : ""}</div>
       ${e.headline ? `<p class="quote">“${esc(e.headline.value)}”</p>` : ""}
@@ -318,7 +349,7 @@ function eventRow(e) {
 function tbaItem(e) {
   const last = e.past ? `Last held ${parseDate(e.past.last_start).toLocaleDateString(undefined, { month: "long", year: "numeric" })}` : "";
   const site = e.watch[0] ? `<a href="${esc(e.watch[0].url)}" rel="noopener">${esc(e.watch[0].label)}</a>` : "No website on file";
-  return `<li><b>${esc(e.name)}</b><br>${esc([where(e), last].filter(Boolean).join(". "))}<br>${site}
+  return `<li><b>${esc(e.name)}</b>${spcBadge(e)}<br>${esc([where(e), last].filter(Boolean).join(". "))}<br>${site}
     ${e.headline ? `<p class="quote">“${esc(e.headline.value)}”</p>` : ""}${e.note ? `<div class="src">${esc(e.note)}</div>` : ""}</li>`;
 }
 
@@ -384,7 +415,7 @@ function renderList() {
     }
     html += eventRow(e);
   }
-  $("#list").innerHTML = html + (cur ? "</section>" : `<p class="empty">No dated events for this region yet.</p>`);
+  $("#list").innerHTML = html + (cur ? "</section>" : `<p class="empty">No dated events match this filter yet.</p>`);
   $("#tba").innerHTML = tba.map(tbaItem).join("");
 }
 
@@ -408,21 +439,28 @@ function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.ad
 
 function renderFilters() {
   const regions = ["all", ...DATA.regions];
-  $("#filters").innerHTML = regions.map((r) => `<button class="chip" type="button" data-r="${esc(r)}" aria-pressed="${r === region}">${r === "all" ? "Everywhere" : esc(r)}</button>`).join("");
+  $("#filters").innerHTML = regions.map((r) => `<button class="chip" type="button" data-r="${esc(r)}" aria-pressed="${r === region}">${r === "all" ? "Everywhere" : esc(r)}</button>`).join("")
+    + `<button class="chip spc-toggle" type="button" id="spc-toggle" aria-pressed="${spcOnly}">Stern Pro Circuit only</button>`;
   $("#filters").onclick = (ev) => {
-    const b = ev.target.closest("[data-r]"); if (!b) return;
-    region = b.dataset.r;
-    try { localStorage.setItem("region", region); } catch {}
-    const f = DATA.feeds.find((x) => x.name === region); if (f) { $("#feed").value = f.file; $("#feed").onchange(); }
+    if (ev.target.closest("#spc-toggle")) {
+      spcOnly = !spcOnly;
+      try { localStorage.setItem("spcOnly", spcOnly ? "1" : ""); } catch {}
+    } else {
+      const b = ev.target.closest("[data-r]"); if (!b) return;
+      region = b.dataset.r;
+      try { localStorage.setItem("region", region); } catch {}
+    }
+    const f = DATA.feeds.find((x) => spcOnly ? x.id === "spc" : x.name === region); if (f) { $("#feed").value = f.file; $("#feed").onchange(); }
     renderAll();
   };
 }
 function renderAll() {
-  document.querySelectorAll("#filters .chip").forEach((c) => c.setAttribute("aria-pressed", c.dataset.r === region));
+  document.querySelectorAll("#filters [data-r]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.r === region));
+  $("#spc-toggle").setAttribute("aria-pressed", spcOnly);
   renderNow(); renderCal(); renderList();
 }
 
-try { const r = localStorage.getItem("region"); if (r && (r === "all" || DATA.regions.includes(r))) region = r; } catch {}
+try { const r = localStorage.getItem("region"); if (r && (r === "all" || DATA.regions.includes(r))) region = r; spcOnly = !!localStorage.getItem("spcOnly"); } catch {}
 $("#prev").onclick = () => { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() - 1, 1); renderCal(); };
 $("#next").onclick = () => { calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 1); renderCal(); };
 $("#today").onclick = () => { calMonth = new Date(now.getFullYear(), now.getMonth(), 1); renderCal(); };

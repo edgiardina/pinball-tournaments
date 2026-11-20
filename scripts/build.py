@@ -9,6 +9,7 @@ import csv
 import datetime as dt
 import json
 import re
+import shutil
 from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
@@ -50,13 +51,20 @@ def ifpa_edition(tournaments: list[dict]) -> dict | None:
     }
 
 
+def spc_season(found: dict | None, by_hand: int | None) -> dict | None:
+    # discover.py finds most SPC stops in IFPA's details text; catalog "spc" covers the rest.
+    seasons = [x for x in ((found or {}).get("season"), by_hand) if x]
+    return {"season": max(seasons)} if seasons else None
+
+
 def site_label(url: str) -> str:
     return (urlparse(url).hostname or url).removeprefix("www.")
 
 
 def build_events(today: dt.date) -> list[dict]:
     catalog = load(DATA / "catalog.json", {"events": []})["events"]
-    upcoming = load(DATA / "ifpa_upcoming.json", {"events": {}})["events"]
+    ifpa_data = load(DATA / "ifpa_upcoming.json", {"events": {}})
+    upcoming, spc = ifpa_data["events"], ifpa_data.get("spc", {})
     state = load(DATA / "state.json", {"events": {}})["events"]
     pages = load(DATA / "pages" / "index.json", {})
     hist = history_stats()
@@ -105,6 +113,7 @@ def build_events(today: dt.date) -> list[dict]:
             "headline": ({"value": val("headline"), **_src(fields["headline"])} if val("headline") else None),
             "reg": reg, "past": past, "watch": watch, "note": ev.get("note"),
             "checked_at": state.get(ev["id"], {}).get("checked_at"),
+            "spc": spc_season(spc.get(ev["id"]), ev.get("spc")),
         })
     out.sort(key=lambda e: (e["start"] is None, e["start"] or "", (e["past"] or {}).get("last_start", "")[5:] or "99"))
     return out
@@ -214,6 +223,11 @@ def main() -> None:
         f = f"calendar-{slug(r)}.ics"
         write_ics(SITE / f, f"{CAL_NAME}: {r}", [e for e in events if e["region"] == r], {"event", "reg"})
         feeds.append({"id": slug(r), "name": r, "file": f})
+    spc_events = [e for e in events if e["spc"]]
+    write_ics(SITE / "calendar-spc.ics", f"{CAL_NAME}: Stern Pro Circuit", spc_events, {"event", "reg"})
+    feeds.append({"id": "spc", "name": "Stern Pro Circuit", "file": "calendar-spc.ics"})
+    if (ROOT / "web" / "assets").is_dir():
+        shutil.copytree(ROOT / "web" / "assets", SITE / "assets", dirs_exist_ok=True)
     payload = {"built_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "regions": regions,
                "feeds": feeds, "events": events}
     (SITE / "events.json").write_text(json.dumps(payload, indent=1, ensure_ascii=False), encoding="utf-8")

@@ -1,0 +1,61 @@
+name: Add an event
+description: Ask for a big pinball event to go on wpprfarm.com. A script checks it and replies in a minute.
+title: "Add event"
+labels: ["add-event"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A script reads this form, not a person. It adds the event when all of these are true:
+
+        - A past edition is on IFPA with a WPPR value of 75 or more.
+        - The event is not on the list already.
+        - The website is the event's own page. Facebook and Discord pages can't be read.
+
+        The event name and city come from IFPA. Dates show up after the website states them in plain text, with the year.
+  - type: input
+    id: ifpa
+    attributes:
+      label: IFPA tournament from a past year
+      description: Link to the main tournament of a past edition.
+      placeholder: https://www.ifpapinball.com/tournaments/view.php?t=111895
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Event website
+      description: The page where the organizer posts dates and registration.
+      placeholder: https://example.com/
+    validations:
+      required: true
+  - type: dropdown
+    id: tz
+    attributes:
+      label: Time zone
+      description: Where the event happens. Pick "Other" and name it below if yours isn't listed.
+      options:
+        - America/New_York
+        - America/Chicago
+        - America/Denver
+        - America/Phoenix
+        - America/Los_Angeles
+        - America/Edmonton
+        - America/Toronto
+        - America/Vancouver
+        - Europe/London
+        - Europe/Paris
+        - Europe/Berlin
+        - Europe/Amsterdam
+        - Europe/Stockholm
+        - Australia/Sydney
+        - Australia/Brisbane
+        - Pacific/Auckland
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: tz-other
+    attributes:
+      label: Other time zone
+      description: Only if you picked "Other". Use the IANA name, like Europe/Budapest.

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T00:56:45+00:00",
+ "generated_at": "2026-11-20T19:22:06+00:00",
  "events": {
   "indisc": [
    {
@@ -82,6 +82,7 @@
   ],
   "zoo": [],
   "d82spc": [],
+  "sss": [],
   "pinfest": [],
   "sfge": [],
   "pincinnati": [
@@ -220,5 +221,55 @@
     "prereg_flag_date": null
    }
   ]
+ },
+ "spc": {
+  "beast": {
+   "season": 2026,
+   "ifpa_id": 114295
+  },
+  "d82spc": {
+   "season": 2026,
+   "ifpa_id": 111865
+  },
+  "expo": {
+   "season": 2026,
+   "ifpa_id": 121350
+  },
+  "freeplayflorida": {
+   "season": 2025,
+   "ifpa_id": 102385
+  },
+  "midatlantic": {
+   "season": 2026,
+   "ifpa_id": 111065
+  },
+  "pintastic": {
+   "season": 2026,
+   "ifpa_id": 107326
+  },
+  "sss": {
+   "season": 2026,
+   "ifpa_id": 115430
+  },
+  "stlouis": {
+   "season": 2026,
+   "ifpa_id": 121827
+  },
+  "tpf": {
+   "season": 2027,
+   "ifpa_id": 121803
+  },
+  "ukopen": {
+   "season": 2026,
+   "ifpa_id": 118628
+  },
+  "yegpin": {
+   "season": 2026,
+   "ifpa_id": 106308
+  },
+  "zoo": {
+   "season": 2026,
+   "ifpa_id": 113108
+  }
  }
 }

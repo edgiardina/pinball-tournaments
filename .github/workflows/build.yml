@@ -31,7 +31,7 @@ jobs:
           IFPA_API_KEY: ${{ secrets.IFPA_API_KEY }}
         run: |
           if [ -z "$IFPA_API_KEY" ]; then echo "::warning::IFPA_API_KEY not set; keeping the committed ifpa_upcoming.json"; exit 0; fi
-          python scripts/discover.py
+          if [ "${{ github.event_name }}" = "schedule" ]; then python scripts/discover.py --spc; else python scripts/discover.py; fi
       - name: Re-verify (drops editions that have ended)
         run: python scripts/verify.py
       - name: Build site
