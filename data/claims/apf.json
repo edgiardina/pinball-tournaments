@@ -1,23 +1,23 @@
 {
  "event_id": "apf",
- "checked_at": "2026-11-20T01:00:00Z",
+ "checked_at": "2026-11-21T10:00:00Z",
  "claims": [
   {
    "field": "event_start",
    "value": "2027-05-27",
-   "quote": "27.–30. Mai 2027",
+   "quote": "27.-30. Mai 2027",
    "url": "https://www.pinball-festival.at/"
   },
   {
    "field": "event_end",
    "value": "2027-05-30",
-   "quote": "27.–30. Mai 2027",
+   "quote": "27.-30. Mai 2027",
    "url": "https://www.pinball-festival.at/"
   },
   {
    "field": "headline",
-   "value": "Information about tournaments, machines, exhibitors, programme, tickets, travel and accommodation will be available soon.",
-   "quote": "Information about tournaments, machines, exhibitors, programme, tickets, travel and accommodation will be available soon.",
+   "value": "Weitere Informationen zur Anmeldung folgen in Kürze.",
+   "quote": "Weitere Informationen zur Anmeldung folgen in Kürze.",
    "url": "https://www.pinball-festival.at/"
   }
  ]

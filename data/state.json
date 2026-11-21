@@ -1,37 +1,41 @@
 {
  "events": {
   "apf": {
-   "checked_at": "2026-11-20T01:00:00Z",
+   "checked_at": "2026-11-21T10:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
      "first_seen_at": "2026-11-20T00:35:34+00:00",
-     "quote": "27.–30. Mai 2027",
+     "quote": "27.-30. Mai 2027",
      "url": "https://www.pinball-festival.at/",
      "value": "2027-05-30",
-     "verified_at": "2026-11-20T01:00:00Z"
+     "verified_at": "2026-11-21T10:00:00Z"
     },
     "event_start": {
      "field": "event_start",
      "first_seen_at": "2026-11-20T00:35:34+00:00",
-     "quote": "27.–30. Mai 2027",
+     "quote": "27.-30. Mai 2027",
      "url": "https://www.pinball-festival.at/",
      "value": "2027-05-27",
-     "verified_at": "2026-11-20T01:00:00Z"
+     "verified_at": "2026-11-21T10:00:00Z"
     },
     "headline": {
      "field": "headline",
-     "first_seen_at": "2026-11-20T00:35:34+00:00",
-     "quote": "Information about tournaments, machines, exhibitors, programme, tickets, travel and accommodation will be available soon.",
+     "first_seen_at": "2026-11-21T10:00:00Z",
+     "previous": {
+      "replaced_at": "2026-11-21T10:00:00Z",
+      "value": "Information about tournaments, machines, exhibitors, programme, tickets, travel and accommodation will be available soon."
+     },
+     "quote": "Weitere Informationen zur Anmeldung folgen in Kürze.",
      "url": "https://www.pinball-festival.at/",
-     "value": "Information about tournaments, machines, exhibitors, programme, tickets, travel and accommodation will be available soon.",
-     "verified_at": "2026-11-20T01:00:00Z"
+     "value": "Weitere Informationen zur Anmeldung folgen in Kürze.",
+     "verified_at": "2026-11-21T10:00:00Z"
     }
    },
    "rejected": []
   },
   "auspo": {
-   "checked_at": "2026-11-20T01:00:00Z",
+   "checked_at": "2026-11-21T10:00:00Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -39,7 +43,7 @@
      "quote": "NOVEMBER 26TH - 29TH 2026",
      "url": "https://auspinballopen.com/",
      "value": "2026-11-29",
-     "verified_at": "2026-11-20T01:00:00Z"
+     "verified_at": "2026-11-21T10:00:00Z"
     },
     "event_start": {
      "field": "event_start",
@@ -47,7 +51,7 @@
      "quote": "NOVEMBER 26TH - 29TH 2026",
      "url": "https://auspinballopen.com/",
      "value": "2026-11-26",
-     "verified_at": "2026-11-20T01:00:00Z"
+     "verified_at": "2026-11-21T10:00:00Z"
     },
     "reg_url": {
      "field": "reg_url",
@@ -55,7 +59,7 @@
      "quote": "BUY TICKETS <https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup>",
      "url": "https://auspinballopen.com/",
      "value": "https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup",
-     "verified_at": "2026-11-20T01:00:00Z"
+     "verified_at": "2026-11-21T10:00:00Z"
     }
    },
    "rejected": []
@@ -115,12 +119,17 @@
    "rejected": []
   },
   "d82spc": {
-   "checked_at": "2026-11-20T01:00:00Z",
+   "checked_at": "2026-11-21T10:00:00Z",
    "fields": {},
    "rejected": []
   },
   "dpo": {
    "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "electricbatanniversaryba": {
+   "checked_at": "2026-11-21T10:00:00Z",
    "fields": {},
    "rejected": []
   },
@@ -382,6 +391,11 @@
    },
    "rejected": []
   },
+  "qcsweekendlevel1matchpla": {
+   "checked_at": "2026-11-21T10:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
   "rockpin": {
    "checked_at": "2026-11-20T01:00:00Z",
    "fields": {},
@@ -411,6 +425,11 @@
   },
   "spacecity": {
    "checked_at": "2026-11-20T01:00:00Z",
+   "fields": {},
+   "rejected": []
+  },
+  "sss": {
+   "checked_at": "2026-11-21T10:00:00Z",
    "fields": {},
    "rejected": []
   },
@@ -491,5 +510,5 @@
    "rejected": []
   }
  },
- "verified_at": "2026-11-20T20:22:42+00:00"
+ "verified_at": "2026-11-21T08:41:45+00:00"
 }
