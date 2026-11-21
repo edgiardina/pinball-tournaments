@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T10:14:10+00:00",
+ "generated_at": "2026-11-21T17:02:18+00:00",
  "events": {
   "indisc": [
    {
@@ -326,6 +326,10 @@
   ]
  },
  "spc": {
+  "abileneshowdown": {
+   "season": 2027,
+   "ifpa_id": 123798
+  },
   "beast": {
    "season": 2026,
    "ifpa_id": 114295
@@ -365,6 +369,10 @@
   "ukopen": {
    "season": 2026,
    "ifpa_id": 118628
+  },
+  "winterbashyearendpinball": {
+   "season": 2026,
+   "ifpa_id": 122371
   },
   "yegpin": {
    "season": 2026,
