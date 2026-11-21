@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T20:42:18+00:00",
+ "generated_at": "2026-11-21T10:14:10+00:00",
  "events": {
   "indisc": [
    {
@@ -284,6 +284,44 @@
     "country": "US",
     "website": "https://www.facebook.com/groups/georgiapinball",
     "prereg_flag_date": null
+   }
+  ],
+  "eastanglianpinballopen": [
+   {
+    "ifpa_id": 116238,
+    "name": "2027 East Anglian Pinball Open",
+    "division": "Main Tournament",
+    "start": "2027-02-26",
+    "end": "2027-02-28",
+    "city": "Thetford",
+    "stateprov": "Eng",
+    "country": "GB",
+    "website": "https://www.eastanglianpinballopen.com/tournaments/tournament-info-main/",
+    "prereg_flag_date": "2026-09-05"
+   },
+   {
+    "ifpa_id": 116237,
+    "name": "2027 East Anglian Pinball Open - Classics",
+    "division": "Classics",
+    "start": "2027-02-26",
+    "end": "2027-02-27",
+    "city": "Thetford",
+    "stateprov": "Eng",
+    "country": "GB",
+    "website": "https://www.eastanglianpinballopen.com/tournaments/tournament-info-classics/",
+    "prereg_flag_date": "2026-09-05"
+   },
+   {
+    "ifpa_id": 116239,
+    "name": "2027 East Anglian Pinball Open - UK Pinball Cup",
+    "division": "Main Tournament",
+    "start": "2027-02-26",
+    "end": "2027-02-27",
+    "city": "Thetford",
+    "stateprov": "Eng",
+    "country": "GB",
+    "website": "https://www.eastanglianpinballopen.com/tournaments/tournament-info-matchplay/",
+    "prereg_flag_date": "2026-09-05"
    }
   ]
  },
