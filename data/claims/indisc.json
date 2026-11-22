@@ -25,6 +25,12 @@
    "value": "open",
    "quote": "Get Tickets <https://buytickets.at/iepinball/2352180>",
    "url": "https://www.indisc.com/"
+  },
+  {
+   "field": "discord_url",
+   "value": "https://discord.gg/9hfvD3XKpf",
+   "quote": "<https://discord.gg/9hfvD3XKpf>",
+   "url": "https://www.indisc.com/"
   }
  ]
 }

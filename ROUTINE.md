@@ -50,6 +50,7 @@ Fields:
 | `reg_method` | `first_come`, `lottery`, `qualifier`, `invite`, `walk_up`. |
 | `reg_url` | The registration or ticket link. It must appear on the page. |
 | `player_cap` | Integer from the page. |
+| `discord_url` | The Discord invite link of the event (`discord.gg/...` or `discord.com/invite/...`). It must appear on the page. Report it even when the page shows only a past edition. |
 | `headline` | One sentence copied exactly from the page that tells players the current state: postponed, cancelled, sold out, "website coming soon", "dates TBA". `value` and `quote` must be identical. Leave it out if nothing on the page says this. |
 
 ## Rules

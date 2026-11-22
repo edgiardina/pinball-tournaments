@@ -195,6 +195,14 @@
   "indisc": {
    "checked_at": "2026-11-20T01:00:00Z",
    "fields": {
+    "discord_url": {
+     "field": "discord_url",
+     "first_seen_at": "2026-11-20T01:00:00Z",
+     "quote": "<https://discord.gg/9hfvD3XKpf>",
+     "url": "https://www.indisc.com/",
+     "value": "https://discord.gg/9hfvD3XKpf",
+     "verified_at": "2026-11-20T01:00:00Z"
+    },
     "event_end": {
      "field": "event_end",
      "first_seen_at": "2026-11-20T00:35:34+00:00",
@@ -398,7 +406,16 @@
   },
   "rockpin": {
    "checked_at": "2026-11-20T01:00:00Z",
-   "fields": {},
+   "fields": {
+    "discord_url": {
+     "field": "discord_url",
+     "first_seen_at": "2026-11-20T01:00:00Z",
+     "quote": "https://discord.gg/e7DShCRxY",
+     "url": "http://mikamar.fi/rockpin",
+     "value": "https://discord.gg/e7DShCRxY",
+     "verified_at": "2026-11-20T01:00:00Z"
+    }
+   },
    "rejected": []
   },
   "slovenia": {
@@ -462,7 +479,16 @@
   },
   "ukopen": {
    "checked_at": "2026-11-20T01:00:00Z",
-   "fields": {},
+   "fields": {
+    "discord_url": {
+     "field": "discord_url",
+     "first_seen_at": "2026-11-20T01:00:00Z",
+     "quote": "UK Open Discord <https://discord.gg/pdYhyUHZjx>",
+     "url": "https://www.ukopen.net/",
+     "value": "https://discord.gg/pdYhyUHZjx",
+     "verified_at": "2026-11-20T01:00:00Z"
+    }
+   },
    "rejected": []
   },
   "yegpin": {
@@ -510,5 +536,5 @@
    "rejected": []
   }
  },
- "verified_at": "2026-11-22T08:41:53+00:00"
+ "verified_at": "2026-11-22T21:08:21+00:00"
 }

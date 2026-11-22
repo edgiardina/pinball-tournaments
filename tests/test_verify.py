@@ -20,6 +20,8 @@ Weekend passes go on sale Fri., Feb. 26th at 6pm ET online
 Registration starts at: 2026.July 06. 20:00 CET
 Get Tickets <https://buytickets.at/iepinball/2352180>
 Limited to 150 players.
+UK Open Discord <https://discord.gg/pdYhyUHZjx>
+Chat <https://evil.example/discord>
 """}
 
 
@@ -54,6 +56,9 @@ class Accepts(unittest.TestCase):
     def test_url_and_cap(self):
         self.ok(claim("reg_url", "https://buytickets.at/iepinball/2352180", "Get Tickets"))
         self.ok(claim("player_cap", 150, "Limited to 150 players."))
+
+    def test_discord_invite(self):
+        self.ok(claim("discord_url", "https://discord.gg/pdYhyUHZjx", "UK Open Discord"))
 
 
 class Rejects(unittest.TestCase):
@@ -90,6 +95,10 @@ class Rejects(unittest.TestCase):
     def test_url_not_on_page(self):
         self.bad(claim("reg_url", "https://evil.example/pay", "Get Tickets"), "not on page")
 
+    def test_discord_must_be_invite_on_page(self):
+        self.bad(claim("discord_url", "https://evil.example/discord", "Chat"), "Discord invite")
+        self.bad(claim("discord_url", "https://discord.gg/someoneelse", "UK Open Discord"), "not on page")
+
     def test_unknown_page(self):
         c = claim("player_cap", 150, "Limited to 150 players.")
         c["url"] = "https://other.example/"
@@ -101,7 +110,8 @@ class Sanity(unittest.TestCase):
         return {k: {"value": v} for k, v in kw.items()}
 
     def test_finished_edition_is_dropped(self):
-        drop = sanity(self.f(event_start="2026-07-22", event_end="2026-07-26", reg_url="x", headline="h"), TODAY)
+        drop = sanity(self.f(event_start="2026-07-22", event_end="2026-07-26", reg_url="x", headline="h",
+                             discord_url="d"), TODAY)
         self.assertEqual(set(drop), {"event_start", "event_end", "reg_url"})
 
     def test_reg_after_event_is_dropped(self):

@@ -34,7 +34,11 @@ ENUMS = {
     "reg_method": {"first_come", "lottery", "qualifier", "invite", "walk_up"},
 }
 TEXT_FIELDS = {"headline"}  # shown verbatim; value must equal the quote
-URL_FIELDS = {"reg_url"}
+URL_FIELDS = {"reg_url", "discord_url"}
+# Invite links only; a discord_url claim pointing anywhere else is rejected.
+DISCORD_INVITE = re.compile(r"https://(?:www\.)?(?:discord\.gg/|discord(?:app)?\.com/invite/)[A-Za-z0-9-]+/?")
+# Fields about the event itself, not one edition, so they survive a finished edition on the page.
+EVERGREEN_FIELDS = {"headline", "discord_url"}
 INT_FIELDS = {"player_cap"}
 ALL_FIELDS = DATE_FIELDS | set(ENUMS) | TEXT_FIELDS | URL_FIELDS | INT_FIELDS
 NO_YEAR_WINDOW_DAYS = 120
@@ -141,7 +145,9 @@ def check_claim(c: dict, pages: dict[str, str], today: dt.date) -> dict:
             raise Reject("headline must be the quote itself")
     elif field in URL_FIELDS:
         if not re.match(r"https?://", value or "") or value not in pages[url]:
-            raise Reject("reg_url not on page")
+            raise Reject(f"{field} not on page")
+        if field == "discord_url" and not DISCORD_INVITE.fullmatch(value):
+            raise Reject("discord_url must be a Discord invite link")
     elif field in INT_FIELDS:
         if not isinstance(value, int) or str(value) not in re.sub(r"[,.\s](?=\d{3})", "", q):
             raise Reject("player_cap not in quote")
@@ -159,7 +165,7 @@ def sanity(fields: dict[str, dict], today: dt.date) -> list[str]:
     last_day = end or start
     if last_day and last_day < today:
         # Page still shows the edition that already happened: none of it is useful now.
-        return [f for f in fields if f != "headline"]
+        return [f for f in fields if f not in EVERGREEN_FIELDS]
     if start and get("reg_opens") and get("reg_opens") > start:
         drop.append("reg_opens")
     if last_day and get("reg_closes") and get("reg_closes") > last_day:

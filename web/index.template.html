@@ -142,6 +142,10 @@ footer .credit { margin: 28px 0 0; padding-top: 16px; border-top: 1px solid var(
 .src summary { display: inline; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 .src blockquote { margin: 6px 0 0; padding-left: 10px; border-left: 2px solid var(--rule); }
 .spc { display: inline-block; font: 700 12px/1 var(--body); padding: 4px 7px; border-radius: 4px; border: 1px solid var(--ink); color: var(--ink); margin-left: 8px; vertical-align: middle; letter-spacing: .02em; }
+.discord { display: inline-block; margin-left: 8px; vertical-align: middle; color: var(--ink-soft); line-height: 0; }
+.discord svg { width: 22px; height: 22px; fill: currentColor; }
+li .discord svg { width: 16px; height: 16px; }
+.discord:hover, .discord:focus-visible { color: #5865f2; }
 .spc.past { border-style: dashed; color: var(--ink-soft); border-color: var(--ink-soft); }
 .spc-toggle { margin-left: auto; }
 @media (max-width: 760px) { .spc-toggle { margin-left: 0; } }
@@ -341,6 +345,11 @@ function sourceLine(src, kind) {
 const recentlyChanged = (f) => f?.previous && (now - new Date(f.previous.replaced_at)) < 14 * DAY;
 
 // e.spc.season is the latest season IFPA confirms. Only call the edition itself an SPC stop when the years match.
+function discordLink(e) {
+  if (!e.discord) return "";
+  return `<a class="discord" href="${esc(e.discord.value)}" rel="noopener" title="${esc(e.short)} Discord (link from ${esc(e.discord.label)})" aria-label="${esc(e.short)} Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>`;
+}
+
 function spcBadge(e) {
   if (!e.spc) return "";
   const year = e.start ? parseDate(e.start).getFullYear() : null, s = e.spc.season;
@@ -369,10 +378,11 @@ function eventRow(e) {
     <div class="date-block"><span class="num${+a !== +b && a.getMonth() === b.getMonth() ? " range" : ""}">${a.getDate()}${+a !== +b && a.getMonth() === b.getMonth() ? "–" + b.getDate() : ""}</span>
       <small>${a.toLocaleDateString(undefined, { weekday: "short" })}${+a !== +b ? "–" + b.toLocaleDateString(undefined, { weekday: "short", month: a.getMonth() !== b.getMonth() ? "short" : undefined, day: a.getMonth() !== b.getMonth() ? "numeric" : undefined }) : ""}</small></div>
     <div>
-      <h3>${esc(e.name)}${spcBadge(e)}${recentlyChanged(e.reg.reg_opens) || recentlyChanged(e.date_source) ? '<span class="changed">Date changed</span>' : ""}</h3>
+      <h3>${esc(e.name)}${discordLink(e)}${spcBadge(e)}${recentlyChanged(e.reg.reg_opens) || recentlyChanged(e.date_source) ? '<span class="changed">Date changed</span>' : ""}</h3>
       <div class="where">${esc(where(e) || e.region)}</div>
       <div class="status">${live ? '<span class="lamp blue lit blink"></span>Happening now' : `<span class="lamp ${st.lamp}"></span>${esc(st.text)}`}${st.sub ? ` <span class="detail">${esc(st.sub)}</span>` : ""}</div>
       ${e.headline ? `<p class="quote">“${esc(e.headline.value)}”</p>` : ""}
+      ${e.note ? `<div class="src">${esc(e.note)}</div>` : ""}
       ${facts.length ? `<ul class="facts">${facts.map((f) => `<li>${f}</li>`).join("")}</ul>` : ""}
       ${e.reg.reg_url && !live ? `<a class="btn reg-btn" href="${esc(e.reg.reg_url.value)}" rel="noopener">Go to registration</a>` : ""}
       <div class="src">${dateSrc}${st.detail ? " Registration info " + sourceLine(st.detail, "from") : ""}
@@ -384,7 +394,7 @@ function tbaItem(e) {
   const last = e.past ? `Last held ${parseDate(e.past.last_start).toLocaleDateString(undefined, { month: "long", year: "numeric" })}` : "";
   const site = e.watch[0] ? `<a href="${esc(e.watch[0].url)}" rel="noopener">${esc(e.watch[0].label)}</a>`
     : `No website on file. <a href="${SUGGEST_URL}&event=${encodeURIComponent(e.short)}" rel="noopener">Know it? Suggest one</a>`;
-  return `<li><b>${esc(e.name)}</b>${spcBadge(e)}<br>${esc([where(e), last].filter(Boolean).join(". "))}<br>${site}
+  return `<li><b>${esc(e.name)}</b>${discordLink(e)}${spcBadge(e)}<br>${esc([where(e), last].filter(Boolean).join(". "))}<br>${site}
     ${e.headline ? `<p class="quote">“${esc(e.headline.value)}”</p>` : ""}${e.note ? `<div class="src">${esc(e.note)}</div>` : ""}</li>`;
 }
 

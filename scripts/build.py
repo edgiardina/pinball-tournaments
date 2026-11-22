@@ -112,6 +112,7 @@ def build_events(today: dt.date) -> list[dict]:
             "divisions": (ifpa or {}).get("divisions", []) if start else [],
             "headline": ({"value": val("headline"), **_src(fields["headline"])} if val("headline") else None),
             "reg": reg, "past": past, "watch": watch, "note": ev.get("note"),
+            "discord": ({"value": val("discord_url"), **_src(fields["discord_url"])} if val("discord_url") else None),
             "checked_at": state.get(ev["id"], {}).get("checked_at"),
             "spc": spc_season(spc.get(ev["id"]), ev.get("spc")),
         })

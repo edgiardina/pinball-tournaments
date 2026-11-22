@@ -1,5 +1,12 @@
 {
  "event_id": "ukopen",
  "checked_at": "2026-11-20T01:00:00Z",
- "claims": []
+ "claims": [
+  {
+   "field": "discord_url",
+   "value": "https://discord.gg/pdYhyUHZjx",
+   "quote": "UK Open Discord <https://discord.gg/pdYhyUHZjx>",
+   "url": "https://www.ukopen.net/"
+  }
+ ]
 }

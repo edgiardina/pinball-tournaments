@@ -1,5 +1,12 @@
 {
  "event_id": "rockpin",
  "checked_at": "2026-11-20T01:00:00Z",
- "claims": []
+ "claims": [
+  {
+   "field": "discord_url",
+   "value": "https://discord.gg/e7DShCRxY",
+   "quote": "https://discord.gg/e7DShCRxY",
+   "url": "http://mikamar.fi/rockpin"
+  }
+ ]
 }
