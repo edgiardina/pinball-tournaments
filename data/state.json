@@ -1,7 +1,7 @@
 {
  "events": {
   "apf": {
-   "checked_at": "2026-11-21T10:00:00Z",
+   "checked_at": "2026-11-22T08:41:53Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -9,7 +9,7 @@
      "quote": "27.-30. Mai 2027",
      "url": "https://www.pinball-festival.at/",
      "value": "2027-05-30",
-     "verified_at": "2026-11-21T10:00:00Z"
+     "verified_at": "2026-11-22T08:41:53Z"
     },
     "event_start": {
      "field": "event_start",
@@ -17,7 +17,7 @@
      "quote": "27.-30. Mai 2027",
      "url": "https://www.pinball-festival.at/",
      "value": "2027-05-27",
-     "verified_at": "2026-11-21T10:00:00Z"
+     "verified_at": "2026-11-22T08:41:53Z"
     },
     "headline": {
      "field": "headline",
@@ -29,13 +29,13 @@
      "quote": "Weitere Informationen zur Anmeldung folgen in Kürze.",
      "url": "https://www.pinball-festival.at/",
      "value": "Weitere Informationen zur Anmeldung folgen in Kürze.",
-     "verified_at": "2026-11-21T10:00:00Z"
+     "verified_at": "2026-11-22T08:41:53Z"
     }
    },
    "rejected": []
   },
   "auspo": {
-   "checked_at": "2026-11-21T10:00:00Z",
+   "checked_at": "2026-11-22T08:41:53Z",
    "fields": {
     "event_end": {
      "field": "event_end",
@@ -43,7 +43,7 @@
      "quote": "NOVEMBER 26TH - 29TH 2026",
      "url": "https://auspinballopen.com/",
      "value": "2026-11-29",
-     "verified_at": "2026-11-21T10:00:00Z"
+     "verified_at": "2026-11-22T08:41:53Z"
     },
     "event_start": {
      "field": "event_start",
@@ -51,7 +51,7 @@
      "quote": "NOVEMBER 26TH - 29TH 2026",
      "url": "https://auspinballopen.com/",
      "value": "2026-11-26",
-     "verified_at": "2026-11-21T10:00:00Z"
+     "verified_at": "2026-11-22T08:41:53Z"
     },
     "reg_url": {
      "field": "reg_url",
@@ -59,7 +59,7 @@
      "quote": "BUY TICKETS <https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup>",
      "url": "https://auspinballopen.com/",
      "value": "https://events.humanitix.com/australian-pinball-open-championship-2026/tickets?widget=popup",
-     "verified_at": "2026-11-21T10:00:00Z"
+     "verified_at": "2026-11-22T08:41:53Z"
     }
    },
    "rejected": []
@@ -119,7 +119,7 @@
    "rejected": []
   },
   "d82spc": {
-   "checked_at": "2026-11-21T10:00:00Z",
+   "checked_at": "2026-11-22T08:41:53Z",
    "fields": {},
    "rejected": []
   },
@@ -429,7 +429,7 @@
    "rejected": []
   },
   "sss": {
-   "checked_at": "2026-11-21T10:00:00Z",
+   "checked_at": "2026-11-22T08:41:53Z",
    "fields": {},
    "rejected": []
   },
@@ -510,5 +510,5 @@
    "rejected": []
   }
  },
- "verified_at": "2026-11-21T08:41:45+00:00"
+ "verified_at": "2026-11-22T08:41:53+00:00"
 }
