@@ -46,7 +46,7 @@
      "watch": ["http://www.bnepac.org/"]},
     {"id": "nwpas", "name": "Northwest Pinball & Arcade Show", "short": "NWPAS", "tz": "America/Los_Angeles", "region": "US West",
      "keys": ["nwpas.wapinball.net", "hisokajp.wixsite.com"], "patterns": ["northwest pinball and arcade show", "\\bnwpas\\b"],
-     "watch": ["http://nwpas.wapinball.net/open.html"]},
+     "watch": ["https://hisokajp.wixsite.com/nwpas", "https://www.nwpinballshow.com/"]},
     {"id": "hpo", "name": "Hungarian Pinball Open", "short": "Hungarian Open", "tz": "Europe/Budapest", "region": "Europe",
      "keys": ["pinballopen.hu", "mabra.hu", "Budapest|hungarian pinball o", "Budapest|hungarian pinall op"], "patterns": ["hungarian pin(b)?all open", "^hpo "],
      "watch": ["https://pinballopen.hu/"]},

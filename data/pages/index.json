@@ -85,6 +85,15 @@
   "file": "sfge--0.txt",
   "status": "error"
  },
+ "https://hisokajp.wixsite.com/nwpas": {
+  "changed_at": "2026-11-26T22:51:32+00:00",
+  "event_id": "nwpas",
+  "fetched_at": "2026-11-26T22:51:32+00:00",
+  "file": "nwpas--0.txt",
+  "last_ok_at": "2026-11-26T22:51:32+00:00",
+  "sha256": "0c4b16b0bfb9a33e88cdca4c3d731ef5dd392c04e0f64660e371eb3bd3f132e8",
+  "status": "ok"
+ },
  "https://louisvillearcade.com/": {
   "changed_at": "2026-11-20T00:32:32+00:00",
   "event_id": "louisville",
@@ -279,6 +288,15 @@
   "file": "nwpc--0.txt",
   "last_ok_at": "2026-11-26T08:40:52+00:00",
   "sha256": "efbc3f369826aa42e44e13c68975107e7e941a3b227645bec1ea5117e7306825",
+  "status": "ok"
+ },
+ "https://www.nwpinballshow.com/": {
+  "changed_at": "2026-11-26T22:51:32+00:00",
+  "event_id": "nwpas",
+  "fetched_at": "2026-11-26T22:51:32+00:00",
+  "file": "nwpas--1.txt",
+  "last_ok_at": "2026-11-26T22:51:32+00:00",
+  "sha256": "9c42c8c50a9b1cc58fbe1641a2a26fa28597cdae00d86775d80162a01d5267e0",
   "status": "ok"
  },
  "https://www.pasttimesarcade.com/tournaments": {
