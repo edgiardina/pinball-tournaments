@@ -1,5 +1,18 @@
 {
  "event_id": "nwpas",
- "checked_at": "2026-11-20T01:00:00Z",
- "claims": []
+ "checked_at": "2026-11-27T08:50:00Z",
+ "claims": [
+  {
+   "field": "event_start",
+   "value": "2027-06-04",
+   "quote": "join us for the fun June 4-6 at the 2027 Northwest Pinball & Arcade Show!",
+   "url": "https://www.nwpinballshow.com/"
+  },
+  {
+   "field": "event_end",
+   "value": "2027-06-06",
+   "quote": "join us for the fun June 4-6 at the 2027 Northwest Pinball & Arcade Show!",
+   "url": "https://www.nwpinballshow.com/"
+  }
+ ]
 }
