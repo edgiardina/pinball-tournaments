@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T17:02:18+00:00",
+ "generated_at": "2026-11-28T08:42:37+00:00",
  "events": {
   "indisc": [
    {
@@ -183,44 +183,7 @@
   "gpm": [],
   "frenchmasters": [],
   "slovenia": [],
-  "auspo": [
-   {
-    "ifpa_id": 121981,
-    "name": "Australian Open Women's Championship",
-    "division": "Main Tournament",
-    "start": "2026-11-27",
-    "end": "2026-11-29",
-    "city": "Tweed Heads",
-    "stateprov": "NSW",
-    "country": "AU",
-    "website": "https://auspinballopen.com/tournaments/",
-    "prereg_flag_date": null
-   },
-   {
-    "ifpa_id": 121979,
-    "name": "Australian Pinball Open",
-    "division": "Main Tournament",
-    "start": "2026-11-27",
-    "end": "2026-11-29",
-    "city": "Tweed Heads",
-    "stateprov": "NSW",
-    "country": "AU",
-    "website": "https://auspinballopen.com/tournaments/",
-    "prereg_flag_date": null
-   },
-   {
-    "ifpa_id": 121980,
-    "name": "Australian Pinball Open Classics",
-    "division": "Classics",
-    "start": "2026-11-27",
-    "end": "2026-11-28",
-    "city": "Tweed Heads",
-    "stateprov": "NSW",
-    "country": "AU",
-    "website": "https://auspinballopen.com/tournaments/",
-    "prereg_flag_date": null
-   }
-  ],
+  "auspo": [],
   "pasttimesarcademegamatch": [],
   "winterbashyearendpinball": [
    {
